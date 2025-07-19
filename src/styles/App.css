@@ -1,0 +1,10 @@
+
+.App {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+    grid-template-rows: minmax(100px, min-content) 1fr;
+    grid-template-areas: 
+        "header header"
+        "form preview";
+    height: 100dvh;
+}
