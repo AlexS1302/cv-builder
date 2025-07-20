@@ -2,7 +2,7 @@ import '../styles/Preview.css';
 
 function Preview() {
   return (
-    <div className='Preview'>Preview</div>
+    <div className="Preview">Preview</div>
   )
 }
 
