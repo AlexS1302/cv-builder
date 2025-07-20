@@ -9,8 +9,10 @@ function App() {
   return (
     <div className='App'>
       <Header />
-      <CVForm />
-      <Preview />
+      <main className='main'>
+        <CVForm />
+        <Preview />
+      </main>
     </div>
   );
 }

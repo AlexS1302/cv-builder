@@ -1,4 +1,5 @@
 
 .Preview {
     grid-area: preview;
+    height: 100%;
 }
