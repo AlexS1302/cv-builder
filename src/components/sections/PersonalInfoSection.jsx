@@ -47,6 +47,7 @@ export default function PersonalInfoSection() {
       type: "email",
       placeholder: "Email Address",
       autoComplete: "email",
+      layout: "inline",
     },
     {
       id: "phoneNumber",
@@ -57,6 +58,7 @@ export default function PersonalInfoSection() {
       type: "tel",
       placeholder: "Phone Number",
       autoComplete: "tel",
+      layout: "inline",
     },
     {
       id: "location",
