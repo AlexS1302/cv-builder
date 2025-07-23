@@ -1,0 +1,7 @@
+
+.personal-info-section {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    padding-left: 2rem;
+}

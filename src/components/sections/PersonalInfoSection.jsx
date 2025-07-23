@@ -1,13 +1,15 @@
-import { useState } from "react"
+import "../../styles/sections/PersonalInfoSection.css";
+import { useState } from "react";
+import FieldGroup from "../FieldGroup";
 
 export default function PersonalInfoSection() {
   const [isOpen, setIsOpen] = useState(true);
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [location, setLocation] = useState('');
+  const [fullName, setFullName] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,62 +17,69 @@ export default function PersonalInfoSection() {
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
 
+  const personalFields = [
+    {
+      id: "fullName",
+      name: "fullName",
+      label: "Full Name",
+      value: fullName,
+      setter: setFullName,
+      type: "text",
+      placeholder: "Full Name",
+      autoComplete: "name",
+    },
+    {
+      id: "jobTitle",
+      name: "jobTitle",
+      label: "Job Title",
+      value: jobTitle,
+      setter: setJobTitle,
+      type: "text",
+      placeholder: "Job Title",
+      autoComplete: "organization-title",
+    },
+    {
+      id: "email",
+      name: "email",
+      label: "Email Address",
+      value: email,
+      setter: setEmail,
+      type: "email",
+      placeholder: "Email Address",
+      autoComplete: "email",
+    },
+    {
+      id: "phoneNumber",
+      name: "phoneNumber",
+      label: "Phone Number",
+      value: phone,
+      setter: setPhone,
+      type: "tel",
+      placeholder: "Phone Number",
+      autoComplete: "tel",
+    },
+    {
+      id: "location",
+      name: "location",
+      label: "Location",
+      value: location,
+      setter: setLocation,
+      type: "text",
+      placeholder: "Location",
+      autoComplete: "address-level2",
+    },
+  ];
+
   return (
-    <section>
-      <h2 onClick={toggleOpen}>
-        Personal Information {isOpen ? '▲' : '▼'}
-      </h2>
+    <section className="personal-info-section">
+      <h2 onClick={toggleOpen}>Personal Information {isOpen ? "▲" : "▼"}</h2>
 
       {isOpen && (
         <form onSubmit={handleSubmit}>
-          <input
-            id="firstName"
-            name="firstName"
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            placeholder="First Name"
-            autoComplete="given-name"
-          />
-          <input
-            id="lastName"
-            name="lastName"
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            placeholder="Last Name"
-            autoComplete="family-name"
-          />
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email Address"
-            autoComplete="email"
-          />
-          <input
-            id="phoneNumber"
-            name="phoneNumber"
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="Phone Number"
-            autoComplete="tel"
-          />
-          <input
-            id="location"
-            name="location"
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            placeholder="Location"
-            autoComplete="address-level2"
-          />
+          <FieldGroup fields={personalFields} />
           <button type="submit">Save Section</button>
         </form>
       )}
     </section>
-  )
+  );
 }

@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="Header">
       <img src={HeaderIcon} alt="logo" className='logo'></img>
-      <h1 className="app-name">CVBuilder</h1>
+      <h1 className="app-name">CV Builder</h1>
     </div>
   )
 }
