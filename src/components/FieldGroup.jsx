@@ -15,7 +15,7 @@ function FieldGroup({ fields }) {
             name={field.name}
             type={field.type}
             value={field.value}
-            onChange={(e) => field.setter(e.target.value)}
+            onChange={field.onChange}
             placeholder={field.placeholder}
             autoComplete={field.autoComplete}
           />
@@ -32,7 +32,7 @@ function FieldGroup({ fields }) {
                 name={field.name}
                 type={field.type}
                 value={field.value}
-                onChange={(e) => field.setter(e.target.value)}
+                onChange={field.onChange}
                 placeholder={field.placeholder}
                 autoComplete={field.autoComplete}
               />
@@ -49,7 +49,7 @@ function FieldGroup({ fields }) {
             name={field.name}
             type={field.type}
             value={field.value}
-            onChange={(e) => field.setter(e.target.value)}
+            onChange={field.onChange}
             placeholder={field.placeholder}
             autoComplete={field.autoComplete}
           />

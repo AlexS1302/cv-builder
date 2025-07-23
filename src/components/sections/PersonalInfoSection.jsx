@@ -5,11 +5,21 @@ import FieldGroup from "../FieldGroup";
 export default function PersonalInfoSection() {
   const [isOpen, setIsOpen] = useState(true);
 
-  const [fullName, setFullName] = useState("");
-  const [jobTitle, setJobTitle] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: '',
+    jobTitle: '',
+    email: '',
+    phoneNumber: '',
+    location: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,8 +32,8 @@ export default function PersonalInfoSection() {
       id: "fullName",
       name: "fullName",
       label: "Full Name",
-      value: fullName,
-      setter: setFullName,
+      value: formData.fullName,
+      onChange: handleChange,
       type: "text",
       placeholder: "Full Name",
       autoComplete: "name",
@@ -32,8 +42,8 @@ export default function PersonalInfoSection() {
       id: "jobTitle",
       name: "jobTitle",
       label: "Job Title",
-      value: jobTitle,
-      setter: setJobTitle,
+      value: formData.jobTitle,
+      onChange: handleChange,
       type: "text",
       placeholder: "Job Title",
       autoComplete: "organization-title",
@@ -42,8 +52,8 @@ export default function PersonalInfoSection() {
       id: "email",
       name: "email",
       label: "Email Address",
-      value: email,
-      setter: setEmail,
+      value: formData.email,
+      onChange: handleChange,
       type: "email",
       placeholder: "Email Address",
       autoComplete: "email",
@@ -53,8 +63,8 @@ export default function PersonalInfoSection() {
       id: "phoneNumber",
       name: "phoneNumber",
       label: "Phone Number",
-      value: phone,
-      setter: setPhone,
+      value: formData.phoneNumber,
+      onChange: handleChange,
       type: "tel",
       placeholder: "Phone Number",
       autoComplete: "tel",
@@ -64,8 +74,8 @@ export default function PersonalInfoSection() {
       id: "location",
       name: "location",
       label: "Location",
-      value: location,
-      setter: setLocation,
+      value: formData.location,
+      onChange: handleChange,
       type: "text",
       placeholder: "Location",
       autoComplete: "address-level2",
