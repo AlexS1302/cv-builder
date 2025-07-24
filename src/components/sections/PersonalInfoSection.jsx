@@ -35,7 +35,7 @@ export default function PersonalInfoSection() {
       value: formData.fullName,
       onChange: handleChange,
       type: "text",
-      placeholder: "Full Name",
+      placeholder: "Jane Doe",
       autoComplete: "name",
     },
     {
@@ -45,7 +45,7 @@ export default function PersonalInfoSection() {
       value: formData.jobTitle,
       onChange: handleChange,
       type: "text",
-      placeholder: "Job Title",
+      placeholder: "Project Manager",
       autoComplete: "organization-title",
     },
     {
@@ -55,7 +55,7 @@ export default function PersonalInfoSection() {
       value: formData.email,
       onChange: handleChange,
       type: "email",
-      placeholder: "Email Address",
+      placeholder: "janedoe23@gmail.com",
       autoComplete: "email",
       layout: "inline",
     },
@@ -66,7 +66,7 @@ export default function PersonalInfoSection() {
       value: formData.phoneNumber,
       onChange: handleChange,
       type: "tel",
-      placeholder: "Phone Number",
+      placeholder: "+44 7700 800000",
       autoComplete: "tel",
       layout: "inline",
     },
@@ -77,7 +77,7 @@ export default function PersonalInfoSection() {
       value: formData.location,
       onChange: handleChange,
       type: "text",
-      placeholder: "Location",
+      placeholder: "London, UK",
       autoComplete: "address-level2",
     },
   ];
@@ -89,7 +89,7 @@ export default function PersonalInfoSection() {
       {isOpen && (
         <form onSubmit={handleSubmit}>
           <FieldGroup fields={personalFields} />
-          <button type="submit">Save Section</button>
+          <button type="submit" className="save-btn">Save Section</button>
         </form>
       )}
     </section>
