@@ -1,12 +1,17 @@
-import '../styles/CVForm.css'
-import PersonalInfoSection from '../components/sections/PersonalInfoSection';
+import "../styles/CVForm.css";
+import PersonalInfoSection from "../components/sections/PersonalInfoSection";
 
-function CVForm() {
+function CVForm({ personalInfo, setPersonalInfo, handleChange }) {
+
   return (
     <div className="CVForm">
-      <PersonalInfoSection />
+      <PersonalInfoSection
+        personalInfo={personalInfo}
+        setPersonalInfo={setPersonalInfo}
+        handleChange={handleChange}
+      />
     </div>
-  )
+  );
 }
 
-export default CVForm
+export default CVForm;

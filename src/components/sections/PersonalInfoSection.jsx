@@ -2,38 +2,16 @@ import "../../styles/sections/PersonalInfoSection.css";
 import { useState } from "react";
 import FieldGroup from "../FieldGroup";
 
-export default function PersonalInfoSection() {
+export default function PersonalInfoSection({personalInfo, setPersonalInfo, handleChange}) {
   const [isOpen, setIsOpen] = useState(true);
-
-  const [formData, setFormData] = useState({
-    fullName: '',
-    jobTitle: '',
-    email: '',
-    phoneNumber: '',
-    location: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const toggleOpen = () => setIsOpen((prev) => !prev);
 
   const personalFields = [
     {
       id: "fullName",
       name: "fullName",
       label: "Full Name",
-      value: formData.fullName,
-      onChange: handleChange,
+      value: personalInfo.fullName,
+      onChange: (e) => handleChange(e, setPersonalInfo),
       type: "text",
       placeholder: "Jane Doe",
       autoComplete: "name",
@@ -42,8 +20,8 @@ export default function PersonalInfoSection() {
       id: "jobTitle",
       name: "jobTitle",
       label: "Job Title",
-      value: formData.jobTitle,
-      onChange: handleChange,
+      value: personalInfo.jobTitle,
+      onChange: (e) => handleChange(e, setPersonalInfo),
       type: "text",
       placeholder: "Project Manager",
       autoComplete: "organization-title",
@@ -52,8 +30,8 @@ export default function PersonalInfoSection() {
       id: "email",
       name: "email",
       label: "Email Address",
-      value: formData.email,
-      onChange: handleChange,
+      value: personalInfo.email,
+      onChange: (e) => handleChange(e, setPersonalInfo),
       type: "email",
       placeholder: "janedoe23@gmail.com",
       autoComplete: "email",
@@ -63,8 +41,8 @@ export default function PersonalInfoSection() {
       id: "phoneNumber",
       name: "phoneNumber",
       label: "Phone Number",
-      value: formData.phoneNumber,
-      onChange: handleChange,
+      value: personalInfo.phoneNumber,
+      onChange: (e) => handleChange(e, setPersonalInfo),
       type: "tel",
       placeholder: "+44 7700 800000",
       autoComplete: "tel",
@@ -74,13 +52,19 @@ export default function PersonalInfoSection() {
       id: "location",
       name: "location",
       label: "Location",
-      value: formData.location,
-      onChange: handleChange,
+      value: personalInfo.location,
+      onChange: (e) => handleChange(e, setPersonalInfo),
       type: "text",
       placeholder: "London, UK",
       autoComplete: "address-level2",
     },
   ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const toggleOpen = () => setIsOpen((prev) => !prev);
 
   return (
     <section className="personal-info-section">
