@@ -9,5 +9,7 @@
     display: grid;
     grid-template-columns: 1.5fr 2fr;
     grid-template-areas: "form preview";
-    flex-grow: 1;
+    flex: 1;
+    padding: 2rem;
+    gap: 1rem;
 }

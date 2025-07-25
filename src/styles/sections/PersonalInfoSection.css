@@ -3,7 +3,19 @@
     display: flex;
     flex-direction: column;
     user-select: none;
-    padding-inline: 2rem;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+}
+
+.personal-info-section h2 {
+    cursor: pointer;
+    text-align: center;
+    margin: 0;
+    padding: 2rem;
+}
+
+form {
+    padding: 0rem 1rem 1rem 1rem;
 }
 
 .form-group {
@@ -37,4 +49,5 @@
     border: 1px solid black;
     background-color: white;
     padding: 0.5rem;
+    cursor: pointer;
 }
