@@ -3,6 +3,7 @@ import './styles/App.css';
 import Header from './components/Header';
 import CVForm from './components/CVForm';
 import Preview from './components/Preview';
+import { PDFViewer } from '@react-pdf/renderer';
 
 function App() {
 
@@ -29,8 +30,13 @@ function App() {
         <CVForm
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
-        handleChange={handleChange}/>
-        <Preview />
+        handleChange={handleChange}
+        />
+        <div>
+          <PDFViewer style={{ width: '100%', height: '100%' }}>
+            <Preview />
+          </PDFViewer>
+        </div>
       </main>
     </div>
   );
