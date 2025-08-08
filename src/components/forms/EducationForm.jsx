@@ -1,6 +1,6 @@
 import FieldGroup from "../FieldGroup";
 
-function EducationForm({ educationInfo, setEducationInfo, handleChange }) {
+function EducationForm({ educationInfo, setEducationInfo, handleChange, handleNewEducation }) {
   const educationFields = [
     {
       id: "institution",
@@ -27,6 +27,7 @@ function EducationForm({ educationInfo, setEducationInfo, handleChange }) {
       value: educationInfo.startDate,
       onChange: (e) => handleChange(e, setEducationInfo),
       type: "date",
+      layout: "inline",
     },
     {
       id: "endDate",
@@ -35,6 +36,7 @@ function EducationForm({ educationInfo, setEducationInfo, handleChange }) {
       value: educationInfo.endDate,
       onChange: (e) => handleChange(e, setEducationInfo),
       type: "date",
+      layout: "inline",
     },
     {
       id: "location",
@@ -55,6 +57,8 @@ function EducationForm({ educationInfo, setEducationInfo, handleChange }) {
       alert("Please fill out all fields.");
       return;
     }
+
+    handleNewEducation();
 
     //Clear form
     setEducationInfo({
