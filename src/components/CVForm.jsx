@@ -2,7 +2,7 @@ import "../styles/CVForm.css";
 import PersonalInfoSection from "../components/sections/PersonalInfoSection";
 import EducationSection from "./sections/EducationSection";
 
-function CVForm({ personalInfo, setPersonalInfo, handleChange }) {
+function CVForm({ personalInfo, setPersonalInfo, educationInfo, setEducationInfo, handleChange }) {
 
   return (
     <div className="CVForm">
@@ -12,6 +12,9 @@ function CVForm({ personalInfo, setPersonalInfo, handleChange }) {
         handleChange={handleChange}
       />
       <EducationSection
+        educationInfo={educationInfo}
+        setEducationInfo={setEducationInfo}
+        handleChange={handleChange}
       />
     </div>
   );

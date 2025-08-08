@@ -13,13 +13,6 @@ const styles = StyleSheet.create({
 
 
 function Preview() {
-  return (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <Text>test</Text>
-      </Page>
-    </Document>
-  )
   
 }
 

@@ -15,6 +15,14 @@ function App() {
     location: '',
   });
   
+  const [educationInfo, setEducationInfo] = useState({
+    institution: '',
+    degree: '',
+    startDate: '',
+    endDate: '',
+    location: '',
+  });
+
   const handleChange = (e, setSection) => {
     const { name, value } = e.target;
     setSection((prevData) => ({
@@ -31,12 +39,12 @@ function App() {
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
         handleChange={handleChange}
+
+        educationInfo={educationInfo}
+        setEducationInfo={setEducationInfo}
         />
-        <div>
-          <PDFViewer style={{ width: '100%', height: '100%' }}>
-            <Preview />
-          </PDFViewer>
-        </div>
+        
+        <Preview />
       </main>
     </div>
   );
