@@ -1,6 +1,6 @@
 import FieldGroup from "../FieldGroup";
 
-function EducationForm({ educationInfo, setEducationInfo, handleChange, handleNewEducation }) {
+function EducationForm({ educationInfo, setEducationInfo, handleChange, handleAddEducation }) {
   const educationFields = [
     {
       id: "institution",
@@ -58,7 +58,7 @@ function EducationForm({ educationInfo, setEducationInfo, handleChange, handleNe
       return;
     }
 
-    handleNewEducation();
+    handleAddEducation();
 
     //Clear form
     setEducationInfo({

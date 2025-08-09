@@ -9,9 +9,31 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
 
-  const handleNewEducation = () => {
-    setEducations((prevEducations) => [...prevEducations, educationInfo]);
+  const handleAddEducation = () => {
+    const newItem = {
+      ...educationInfo,
+      id: educationInfo.id || crypto.randomUUID(),
+    };
+
+    const isEditing = educations.some((edu) => edu.id === newItem.id);
+
+    if (isEditing) {
+      setEducations((prev) =>
+        prev.map((edu) => (edu.id === newItem.id ? newItem : edu))
+      );
+    } else {
+      setEducations((prev) => [...prev, newItem]);
+    }
     setShowForm(false);
+  };
+
+  const handleEditEducation = (idToEdit) => {
+    const selectedItem = educations.find((item) => item.id === idToEdit);
+
+    if (selectedItem) {
+      setEducationInfo(selectedItem);
+      setShowForm(true);
+    }
   };
 
   return (
@@ -24,13 +46,19 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
             educationInfo={educationInfo}
             setEducationInfo={setEducationInfo}
             handleChange={handleChange}
-            handleNewEducation={handleNewEducation}
+            handleAddEducation={handleAddEducation}
           />
         ) : (
           <>
             <ul className="education-list">
               {educations.map((edu) => (
-                <li key={edu.id} className="education-entry">
+                <li
+                  key={edu.id}
+                  tabIndex={0}
+                  role="option"
+                  onClick={() => handleEditEducation(edu.id)}
+                  className="education-entry"
+                >
                   <p>
                     {edu.degree}, at {edu.institution}
                   </p>
