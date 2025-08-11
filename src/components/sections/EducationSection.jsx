@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EducationForm from "../forms/EducationForm";
+import EducationList from "../lists/EducationList";
 import "../../styles/sections/EducationSection.css";
 
 function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
@@ -10,6 +11,7 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
 
+  // Helpers
   const handleAddEducation = () => {
     const newItem = {
       ...educationInfo,
@@ -46,6 +48,19 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
     setShowForm(false);
   };
 
+  // Grouping props
+  const educationState = {
+    educationInfo,
+    setEducationInfo,
+    handleChange,
+  };
+
+  const formControl = {
+    isEditing,
+    setIsEditing,
+    setShowForm,
+  };
+
   return (
     <section className="education-section">
       <h2 onClick={toggleOpen}>Education {isOpen ? "▲" : "▼"}</h2>
@@ -53,40 +68,17 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
       {isOpen &&
         (showForm ? (
           <EducationForm
-            educationInfo={educationInfo}
-            setEducationInfo={setEducationInfo}
-            handleChange={handleChange}
+            educationState={educationState}
             handleAddEducation={handleAddEducation}
-            isEditing={isEditing}
-            setIsEditing={setIsEditing}
-            setShowForm={setShowForm}
             handleDeleteEducation={handleDeleteEducation}
+            formControl={formControl}
           />
         ) : (
-          <>
-            <ul className="education-list">
-              {educations.map((edu) => (
-                <li
-                  key={edu.id}
-                  tabIndex={0}
-                  role="option"
-                  onClick={() => handleEditEducation(edu.id)}
-                  className="education-entry"
-                >
-                  <p>
-                    {edu.degree}, at {edu.institution}
-                  </p>
-                </li>
-              ))}
-            </ul>
-            <button
-              type="button"
-              className="add-btn"
-              onClick={() => setShowForm(true)}
-            >
-              Add Education
-            </button>
-          </>
+          <EducationList
+            educations={educations}
+            handleEditEducation={handleEditEducation}
+            setShowForm={setShowForm}
+          />
         ))}
     </section>
   );

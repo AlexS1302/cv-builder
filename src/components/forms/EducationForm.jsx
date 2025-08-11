@@ -1,15 +1,15 @@
 import FieldGroup from "../FieldGroup";
 
 function EducationForm({
-  educationInfo,
-  setEducationInfo,
-  handleChange,
+  educationState,
   handleAddEducation,
-  isEditing,
-  setIsEditing,
-  setShowForm,
   handleDeleteEducation,
+  formControl,
 }) {
+  const { educationInfo, setEducationInfo, handleChange } = educationState;
+  const { isEditing, setIsEditing, setShowForm } = formControl;
+
+  // Field definitions for generating education input fields
   const educationFields = [
     {
       id: "institution",
@@ -79,6 +79,19 @@ function EducationForm({
     });
   };
 
+  // Helpers
+  const handleCancelEdit = () => {
+    setShowForm(false);
+    setIsEditing(false);
+    setEducationInfo({
+      institution: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+    });
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -91,17 +104,7 @@ function EducationForm({
             <button
               type="button"
               className="cancel-btn"
-              onClick={() => {
-                setShowForm(false);
-                setIsEditing(false);
-                setEducationInfo({
-                  institution: "",
-                  degree: "",
-                  startDate: "",
-                  endDate: "",
-                  location: "",
-                });
-              }}
+              onClick={handleCancelEdit}
             >
               Cancel
             </button>

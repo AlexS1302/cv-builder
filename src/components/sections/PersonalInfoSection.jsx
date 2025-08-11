@@ -5,6 +5,7 @@ import FieldGroup from "../FieldGroup";
 export default function PersonalInfoSection({personalInfo, setPersonalInfo, handleChange}) {
   const [isOpen, setIsOpen] = useState(true);
 
+  // Field definitions for generating personal info input fields
   const personalFields = [
     {
       id: "fullName",
