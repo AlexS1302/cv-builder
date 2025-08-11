@@ -6,6 +6,7 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
   const [educations, setEducations] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
 
@@ -15,9 +16,9 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
       id: educationInfo.id || crypto.randomUUID(),
     };
 
-    const isEditing = educations.some((edu) => edu.id === newItem.id);
+    const editing = educations.some((edu) => edu.id === newItem.id);
 
-    if (isEditing) {
+    if (editing) {
       setEducations((prev) =>
         prev.map((edu) => (edu.id === newItem.id ? newItem : edu))
       );
@@ -25,6 +26,7 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
       setEducations((prev) => [...prev, newItem]);
     }
     setShowForm(false);
+    setIsEditing(false);
   };
 
   const handleEditEducation = (idToEdit) => {
@@ -33,7 +35,15 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
     if (selectedItem) {
       setEducationInfo(selectedItem);
       setShowForm(true);
+      setIsEditing(true);
     }
+  };
+
+  const handleDeleteEducation = (id) => {
+    const newEducations = educations.filter((edu) => edu.id !== id);
+
+    setEducations(newEducations);
+    setShowForm(false);
   };
 
   return (
@@ -47,6 +57,10 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
             setEducationInfo={setEducationInfo}
             handleChange={handleChange}
             handleAddEducation={handleAddEducation}
+            isEditing={isEditing}
+            setIsEditing={setIsEditing}
+            setShowForm={setShowForm}
+            handleDeleteEducation={handleDeleteEducation}
           />
         ) : (
           <>

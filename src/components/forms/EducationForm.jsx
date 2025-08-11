@@ -1,6 +1,15 @@
 import FieldGroup from "../FieldGroup";
 
-function EducationForm({ educationInfo, setEducationInfo, handleChange, handleAddEducation }) {
+function EducationForm({
+  educationInfo,
+  setEducationInfo,
+  handleChange,
+  handleAddEducation,
+  isEditing,
+  setIsEditing,
+  setShowForm,
+  handleDeleteEducation,
+}) {
   const educationFields = [
     {
       id: "institution",
@@ -77,6 +86,34 @@ function EducationForm({ educationInfo, setEducationInfo, handleChange, handleAd
         <button type="submit" className="save-btn">
           Save Section
         </button>
+        {isEditing && (
+          <>
+            <button
+              type="button"
+              className="cancel-btn"
+              onClick={() => {
+                setShowForm(false);
+                setIsEditing(false);
+                setEducationInfo({
+                  institution: "",
+                  degree: "",
+                  startDate: "",
+                  endDate: "",
+                  location: "",
+                });
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="delete-btn"
+              onClick={() => handleDeleteEducation(educationInfo.id)}
+            >
+              Delete
+            </button>
+          </>
+        )}
       </form>
     </>
   );
