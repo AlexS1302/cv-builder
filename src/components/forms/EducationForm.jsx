@@ -1,4 +1,5 @@
 import FieldGroup from "../FieldGroup";
+import { Eraser, Undo2, Brush } from "lucide-react";
 
 function EducationForm({
   educationState,
@@ -96,27 +97,32 @@ function EducationForm({
     <>
       <form onSubmit={handleSubmit}>
         <FieldGroup fields={educationFields} />
-        <button type="submit" className="save-btn">
-          Save Section
-        </button>
-        {isEditing && (
-          <>
-            <button
-              type="button"
-              className="cancel-btn"
-              onClick={handleCancelEdit}
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              className="delete-btn"
-              onClick={() => handleDeleteEducation(educationInfo.id)}
-            >
-              Delete
-            </button>
-          </>
-        )}
+        <div className="form-btn-group">
+          <button type="submit" className="save-btn">
+            <Brush />
+            Save Section
+          </button>
+          {isEditing && (
+            <>
+              <button
+                type="button"
+                className="cancel-btn"
+                onClick={handleCancelEdit}
+              >
+                <Undo2 />
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="delete-btn"
+                onClick={() => handleDeleteEducation(educationInfo.id)}
+              >
+                <Eraser />
+                Delete
+              </button>
+            </>
+          )}
+        </div>
       </form>
     </>
   );

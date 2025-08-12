@@ -78,18 +78,46 @@ form {
   gap: 5px;
 }
 
-.save-btn {
+.form-btn-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.save-btn,
+.delete-btn,
+.cancel-btn,
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
   border-radius: 10px;
   outline: none;
   border: none;
   background-color: #48cae4;
-  padding: 0.5rem;
+  padding: 0.5rem 0.8rem 0.5rem 0.5rem;
   cursor: pointer;
   color: white;
   font-weight: 500;
   transition: background-color 0.3s ease;
 }
 
-.save-btn:hover {
+.save-btn:hover,
+.add-btn:hover {
   background-color: #00b4d8;
+}
+
+.delete-btn {
+  background-color: #f11365;
+}
+
+.delete-btn:hover {
+  background-color: #d81159;
+}
+
+.cancel-btn {
+  background-color: #ffd60a;
+}
+
+.cancel-btn:hover {
+  background-color: #ffc300;
 }

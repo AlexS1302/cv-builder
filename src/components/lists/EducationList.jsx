@@ -1,3 +1,5 @@
+import { Plus } from 'lucide-react';
+
 function EducationList({ educations, handleEditEducation, setShowForm }) {
   return (
     <>
@@ -21,6 +23,7 @@ function EducationList({ educations, handleEditEducation, setShowForm }) {
         className="add-btn"
         onClick={() => setShowForm(true)}
       >
+        <Plus />
         Add Education
       </button>
     </>

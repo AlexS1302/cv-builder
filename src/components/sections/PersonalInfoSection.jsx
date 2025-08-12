@@ -1,7 +1,7 @@
 import "../../styles/Sections.css";
 import { useState } from "react";
 import FieldGroup from "../FieldGroup";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Brush } from "lucide-react";
 
 export default function PersonalInfoSection({
   personalInfo,
@@ -83,6 +83,7 @@ export default function PersonalInfoSection({
         <form onSubmit={handleSubmit}>
           <FieldGroup fields={personalFields} />
           <button type="submit" className="save-btn">
+            <Brush />
             Save Section
           </button>
         </form>
