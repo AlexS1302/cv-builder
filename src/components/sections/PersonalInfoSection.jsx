@@ -1,8 +1,13 @@
-import "../../styles/sections/PersonalInfoSection.css";
+import "../../styles/Sections.css";
 import { useState } from "react";
 import FieldGroup from "../FieldGroup";
+import { ChevronDown } from "lucide-react";
 
-export default function PersonalInfoSection({personalInfo, setPersonalInfo, handleChange}) {
+export default function PersonalInfoSection({
+  personalInfo,
+  setPersonalInfo,
+  handleChange,
+}) {
   const [isOpen, setIsOpen] = useState(true);
 
   // Field definitions for generating personal info input fields
@@ -69,14 +74,19 @@ export default function PersonalInfoSection({personalInfo, setPersonalInfo, hand
 
   return (
     <section className="personal-info-section">
-      <h2 onClick={toggleOpen}>Personal Information {isOpen ? "▲" : "▼"}</h2>
+      <h2 onClick={toggleOpen}>
+        Personal Information{" "}
+        <ChevronDown className={`icon ${isOpen ? "open" : "closed"}`} />
+      </h2>
 
-      {isOpen && (
+      <div className={`dropdown ${isOpen ? "open" : "closed"}`}>
         <form onSubmit={handleSubmit}>
           <FieldGroup fields={personalFields} />
-          <button type="submit" className="save-btn">Save Section</button>
+          <button type="submit" className="save-btn">
+            Save Section
+          </button>
         </form>
-      )}
+      </div>
     </section>
   );
 }

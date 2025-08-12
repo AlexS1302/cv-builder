@@ -1,7 +1,8 @@
 import { useState } from "react";
 import EducationForm from "../forms/EducationForm";
 import EducationList from "../lists/EducationList";
-import "../../styles/sections/EducationSection.css";
+import "../../styles/Sections.css";
+import { ChevronDown } from "lucide-react";
 
 function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
   const [educations, setEducations] = useState([]);
@@ -48,7 +49,7 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
     setShowForm(false);
   };
 
-  // Grouping props
+  // Grouping props to reduce clutter in the return statement
   const educationState = {
     educationInfo,
     setEducationInfo,
@@ -63,10 +64,13 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
 
   return (
     <section className="education-section">
-      <h2 onClick={toggleOpen}>Education {isOpen ? "▲" : "▼"}</h2>
+      <h2 onClick={toggleOpen}>
+        Education{" "}
+        <ChevronDown className={`icon ${isOpen ? "open" : "closed"}`} />
+      </h2>
 
-      {isOpen &&
-        (showForm ? (
+      <div className={`dropdown ${isOpen ? "open" : "closed"}`}>
+        {showForm ? (
           <EducationForm
             educationState={educationState}
             handleAddEducation={handleAddEducation}
@@ -79,7 +83,8 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
             handleEditEducation={handleEditEducation}
             setShowForm={setShowForm}
           />
-        ))}
+        )}
+      </div>
     </section>
   );
 }
