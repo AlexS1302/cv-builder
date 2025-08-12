@@ -2,7 +2,7 @@ import { Plus } from 'lucide-react';
 
 function EducationList({ educations, handleEditEducation, setShowForm }) {
   return (
-    <>
+    <div className="education-list-container">
       <ul className="education-list">
         {educations.map((edu) => (
           <li
@@ -26,7 +26,7 @@ function EducationList({ educations, handleEditEducation, setShowForm }) {
         <Plus />
         Add Education
       </button>
-    </>
+    </div>
   );
 }
 export default EducationList;

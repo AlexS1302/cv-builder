@@ -1,7 +1,7 @@
 import "../../styles/Sections.css";
 import { useState } from "react";
 import FieldGroup from "../FieldGroup";
-import { ChevronDown, Brush } from "lucide-react";
+import { ChevronDown, Brush, CircleUserRound } from "lucide-react";
 
 export default function PersonalInfoSection({
   personalInfo,
@@ -80,6 +80,7 @@ export default function PersonalInfoSection({
   return (
     <section className="personal-info-section">
       <h2 onClick={toggleOpen}>
+        <CircleUserRound />
         Personal Information{" "}
         <ChevronDown className={`icon ${isOpen ? "open" : "closed"}`} />
       </h2>

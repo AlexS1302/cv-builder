@@ -2,7 +2,7 @@ import { useState } from "react";
 import EducationForm from "../forms/EducationForm";
 import EducationList from "../lists/EducationList";
 import "../../styles/Sections.css";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, LibraryBig } from "lucide-react";
 
 function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
   const [educations, setEducations] = useState([]);
@@ -44,9 +44,21 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
 
   const handleDeleteEducation = (id) => {
     const newEducations = educations.filter((edu) => edu.id !== id);
-
     setEducations(newEducations);
-    setShowForm(false);
+
+    if (newEducations.length === 0) {
+      setShowForm(true);
+      setIsEditing(false);
+      setEducationInfo({
+        institution: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+        location: "",
+      });
+    } else {
+      setShowForm(false);
+    }
   };
 
   // Grouping props to reduce clutter in the return statement
@@ -65,6 +77,7 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
   return (
     <section className="education-section">
       <h2 onClick={toggleOpen}>
+        <LibraryBig />
         Education{" "}
         <ChevronDown className={`icon ${isOpen ? "open" : "closed"}`} />
       </h2>
