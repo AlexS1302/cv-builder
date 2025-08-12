@@ -73,6 +73,7 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
         {showForm ? (
           <EducationForm
             educationState={educationState}
+            educations={educations}
             handleAddEducation={handleAddEducation}
             handleDeleteEducation={handleDeleteEducation}
             formControl={formControl}

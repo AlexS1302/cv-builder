@@ -68,6 +68,11 @@ export default function PersonalInfoSection({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { fullName, jobTitle, email, phoneNumber, location } = personalInfo;
+    if (!fullName || !jobTitle || !email || !phoneNumber || !location) {
+      alert("Please fill out all fields.");
+      return;
+    }
   };
 
   const toggleOpen = () => setIsOpen((prev) => !prev);

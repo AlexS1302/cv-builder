@@ -3,6 +3,7 @@ import { Eraser, Undo2, Brush } from "lucide-react";
 
 function EducationForm({
   educationState,
+  educations,
   handleAddEducation,
   handleDeleteEducation,
   formControl,
@@ -102,25 +103,27 @@ function EducationForm({
             <Brush />
             Save Section
           </button>
+
+          {(isEditing || educations.length > 0) && (
+            <button
+              type="button"
+              className="cancel-btn"
+              onClick={handleCancelEdit}
+            >
+              <Undo2 />
+              Cancel
+            </button>
+          )}
+
           {isEditing && (
-            <>
-              <button
-                type="button"
-                className="cancel-btn"
-                onClick={handleCancelEdit}
-              >
-                <Undo2 />
-                Cancel
-              </button>
-              <button
-                type="button"
-                className="delete-btn"
-                onClick={() => handleDeleteEducation(educationInfo.id)}
-              >
-                <Eraser />
-                Delete
-              </button>
-            </>
+            <button
+              type="button"
+              className="delete-btn"
+              onClick={() => handleDeleteEducation(educationInfo.id)}
+            >
+              <Eraser />
+              Delete
+            </button>
           )}
         </div>
       </form>
