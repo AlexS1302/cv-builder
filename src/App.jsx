@@ -1,26 +1,25 @@
-import { useState } from 'react'
-import './styles/App.css';
-import Header from './components/Header';
-import CVForm from './components/CVForm';
-import Preview from './components/Preview';
-import { PDFViewer } from '@react-pdf/renderer';
+import { useState } from "react";
+import Header from "./components/Header";
+import Preview from "./components/Preview";
+import PersonalInfoSection from "./components/sections/PersonalInfoSection";
+import EducationSection from "./components/sections/EducationSection";
+import "./styles/App.css";
 
 function App() {
-
   const [personalInfo, setPersonalInfo] = useState({
-    fullName: '',
-    jobTitle: '',
-    email: '',
-    phoneNumber: '',
-    location: '',
+    fullName: "",
+    jobTitle: "",
+    email: "",
+    phoneNumber: "",
+    location: "",
   });
-  
+
   const [educationInfo, setEducationInfo] = useState({
-    institution: '',
-    degree: '',
-    startDate: '',
-    endDate: '',
-    location: '',
+    institution: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    location: "",
   });
 
   const handleChange = (e, setSection) => {
@@ -32,18 +31,23 @@ function App() {
   };
 
   return (
-    <div className='App'>
+    <div className="App">
       <Header />
-      <main className='main'>
-        <CVForm
-        personalInfo={personalInfo}
-        setPersonalInfo={setPersonalInfo}
-        handleChange={handleChange}
+      <main className="main">
+        <div className="CVForm">
+          <PersonalInfoSection
+            personalInfo={personalInfo}
+            setPersonalInfo={setPersonalInfo}
+            handleChange={handleChange}
+          />
 
-        educationInfo={educationInfo}
-        setEducationInfo={setEducationInfo}
-        />
-        
+          <EducationSection
+            educationInfo={educationInfo}
+            setEducationInfo={setEducationInfo}
+            handleChange={handleChange}
+          />
+        </div>
+
         <Preview />
       </main>
     </div>

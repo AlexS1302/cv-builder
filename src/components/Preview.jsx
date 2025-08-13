@@ -1,5 +1,5 @@
-import '../styles/Preview.css';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import "../styles/Preview.css";
+import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   page: {
@@ -7,13 +7,10 @@ const styles = StyleSheet.create({
     height: 842,
     padding: 40,
     borderWidth: 1,
-    borderColor: '#ccc',
-  }
-})
+    borderColor: "#ccc",
+  },
+});
 
+function Preview() {}
 
-function Preview() {
-  
-}
-
-export default Preview
+export default Preview;

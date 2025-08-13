@@ -1,4 +1,4 @@
-import { Plus } from 'lucide-react';
+import { Plus } from "lucide-react";
 
 function EducationList({ educations, handleEditEducation, setShowForm }) {
   return (

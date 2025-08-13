@@ -1,15 +1,22 @@
-
 .App {
-    display: flex;
-    flex-direction: column;
-    height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
 }
 
 .main {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    grid-template-areas: "form preview";
-    flex: 1;
-    padding: 2rem;
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  grid-template-areas: "form preview";
+  flex: 1;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.CVForm {
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
 }
