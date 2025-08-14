@@ -1,16 +1,50 @@
 import "../styles/Preview.css";
-import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
+import { useEffect, useState, useRef } from "react";
+import { Document, Page } from "react-pdf";
+import { pdf } from "@react-pdf/renderer";
+import MyDocument from "./MyDocument";
 
-const styles = StyleSheet.create({
-  page: {
-    width: 595,
-    height: 842,
-    padding: 40,
-    borderWidth: 1,
-    borderColor: "#ccc",
-  },
-});
+function Preview({ personalInfo, educationInfo }) {
+  const [pdfUrl, setPdfUrl] = useState(null);
+  const previousUrlRef = useRef(null);
 
-function Preview() {}
+  useEffect(() => {
+    const generatePdf = async () => {
+      const blob = await pdf(
+        <MyDocument personalInfo={personalInfo} educationInfo={educationInfo} />
+      ).toBlob();
+
+      const newUrl = URL.createObjectURL(blob);
+
+      if (previousUrlRef.current) {
+        URL.revokeObjectURL(previousUrlRef.current);
+      }
+
+      previousUrlRef.current = newUrl;
+      setPdfUrl(newUrl);
+    };
+
+    generatePdf();
+
+    return () => {
+      if (previousUrlRef.current) URL.revokeObjectURL(previousUrlRef);
+    };
+  }, [personalInfo, educationInfo]);
+
+  return (
+    <div className="pdf-container">
+      {pdfUrl && (
+        <Document file={pdfUrl}>
+          <Page
+            pageNumber={1}
+            scale={1.5}
+            renderAnnotationLayer={false}
+            renderTextLayer={false}
+          />
+        </Document>
+      )}
+    </div>
+  );
+}
 
 export default Preview;

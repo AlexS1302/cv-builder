@@ -73,6 +73,8 @@ export default function PersonalInfoSection({
       alert("Please fill out all fields.");
       return;
     }
+
+    
   };
 
   const toggleOpen = () => setIsOpen((prev) => !prev);

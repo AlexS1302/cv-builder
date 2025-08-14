@@ -1,9 +1,12 @@
+import { pdfjs } from "react-pdf";
 import { useState } from "react";
 import Header from "./components/Header";
 import Preview from "./components/Preview";
 import PersonalInfoSection from "./components/sections/PersonalInfoSection";
 import EducationSection from "./components/sections/EducationSection";
 import "./styles/App.css";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -48,7 +51,7 @@ function App() {
           />
         </div>
 
-        <Preview />
+        <Preview personalInfo={personalInfo} educationInfo={educationInfo} />
       </main>
     </div>
   );

@@ -4,3 +4,7 @@
   border-radius: 10px;
   border: 2px solid lightgray;
 }
+
+.pdf-container {
+  border: 3px solid rgb(144, 224, 239);
+}
