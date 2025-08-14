@@ -4,7 +4,12 @@ import EducationList from "../lists/EducationList";
 import "../../styles/Sections.css";
 import { ChevronDown, LibraryBig } from "lucide-react";
 
-function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
+function EducationSection({
+  educationInfo,
+  setEducationInfo,
+  setSavedEducationInfo,
+  handleChange,
+}) {
   const [educations, setEducations] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(true);
@@ -21,13 +26,19 @@ function EducationSection({ educationInfo, setEducationInfo, handleChange }) {
 
     const editing = educations.some((edu) => edu.id === newItem.id);
 
+    let updatedList;
+
     if (editing) {
-      setEducations((prev) =>
-        prev.map((edu) => (edu.id === newItem.id ? newItem : edu))
+      updatedList = educations.map((edu) =>
+        edu.id === newItem.id ? newItem : edu
       );
     } else {
-      setEducations((prev) => [...prev, newItem]);
+      updatedList = [...educations, newItem];
     }
+
+    setEducations(updatedList);
+    setSavedEducationInfo(updatedList);
+
     setShowForm(false);
     setIsEditing(false);
   };

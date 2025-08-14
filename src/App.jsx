@@ -17,6 +17,16 @@ function App() {
     location: "",
   });
 
+  const mockPersonalInfo = {
+    fullName: "Jane Doe",
+    jobTitle: "Project Manager",
+    email: "janedoe23@gmail.com",
+    phoneNumber: "+44 7700 800000",
+    location: "London, UK",
+  };
+
+  const [savedPersonalInfo, setSavedPersonalInfo] = useState(mockPersonalInfo);
+
   const [educationInfo, setEducationInfo] = useState({
     institution: "",
     degree: "",
@@ -24,6 +34,19 @@ function App() {
     endDate: "",
     location: "",
   });
+
+  const mockEducationInfo = [
+    {
+      id: "mock-id-1",
+      institution: "University of Example",
+      degree: "BSc Computer Science",
+      startDate: "2030",
+      endDate: "2033",
+      location: "Oxford, UK",
+    },
+  ];
+
+  const [savedEducationInfo, setSavedEducationInfo] = useState(mockEducationInfo);
 
   const handleChange = (e, setSection) => {
     const { name, value } = e.target;
@@ -41,17 +64,22 @@ function App() {
           <PersonalInfoSection
             personalInfo={personalInfo}
             setPersonalInfo={setPersonalInfo}
+            setSavedPersonalInfo={setSavedPersonalInfo}
             handleChange={handleChange}
           />
 
           <EducationSection
             educationInfo={educationInfo}
             setEducationInfo={setEducationInfo}
+            setSavedEducationInfo={setSavedEducationInfo}
             handleChange={handleChange}
           />
         </div>
 
-        <Preview personalInfo={personalInfo} educationInfo={educationInfo} />
+        <Preview
+          personalInfo={savedPersonalInfo}
+          educationInfo={savedEducationInfo}
+        />
       </main>
     </div>
   );

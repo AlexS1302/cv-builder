@@ -46,5 +46,4 @@ function Preview({ personalInfo, educationInfo }) {
     </div>
   );
 }
-
 export default Preview;

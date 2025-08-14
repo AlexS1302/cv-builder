@@ -6,6 +6,7 @@ import { ChevronDown, Brush, CircleUserRound } from "lucide-react";
 export default function PersonalInfoSection({
   personalInfo,
   setPersonalInfo,
+  setSavedPersonalInfo,
   handleChange,
 }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -74,7 +75,7 @@ export default function PersonalInfoSection({
       return;
     }
 
-    
+    setSavedPersonalInfo(personalInfo);
   };
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
