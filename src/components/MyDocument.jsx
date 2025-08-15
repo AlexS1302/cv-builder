@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "center",
-    marginBottom: 20,
+    marginBottom: 25,
     gap: 5,
   },
   date: {
@@ -66,6 +66,13 @@ function MyDocument({ personalInfo, educationInfo }) {
         </View>
 
         <View style={styles.section}>
+          <Text style={styles.heading}>Summary</Text>
+          <Text style={styles.line}></Text>
+          <Text>{personalInfo.summary}</Text>
+        </View>
+
+        {/* Education */}
+        <View style={styles.section}>
           <Text style={styles.heading}>Education</Text>
           <Text style={styles.line}></Text>
           {educationInfo.map((edu) => (
@@ -73,7 +80,8 @@ function MyDocument({ personalInfo, educationInfo }) {
               <View style={styles.date}>
                 <Text style={styles.bold}>{edu.institution}</Text>
                 <Text>
-                  {formatDate(edu.startDate)} - {formatDate(edu.endDate)} | {edu.location}
+                  {formatDate(edu.startDate)} - {formatDate(edu.endDate)} |{" "}
+                  {edu.location}
                 </Text>
               </View>
               <Text>{edu.degree}</Text>

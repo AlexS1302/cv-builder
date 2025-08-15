@@ -65,12 +65,21 @@ export default function PersonalInfoSection({
       placeholder: "London, UK",
       autoComplete: "address-level2",
     },
+    {
+      id: "summary",
+      name: "summary",
+      label: "Summary",
+      value: personalInfo.summary,
+      onChange: (e) => handleChange(e, setPersonalInfo),
+      type: "text",
+      placeholder: "Summary",
+    },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { fullName, jobTitle, email, phoneNumber, location } = personalInfo;
-    if (!fullName || !jobTitle || !email || !phoneNumber || !location) {
+    const { fullName, jobTitle, email, phoneNumber, location, summary } = personalInfo;
+    if (!fullName || !jobTitle || !email || !phoneNumber || !location || !summary) {
       alert("Please fill out all fields.");
       return;
     }

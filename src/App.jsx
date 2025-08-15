@@ -15,6 +15,7 @@ function App() {
     email: "",
     phoneNumber: "",
     location: "",
+    summary: "",
   });
 
   const mockPersonalInfo = {
@@ -23,6 +24,8 @@ function App() {
     email: "janedoe23@gmail.com",
     phoneNumber: "07700 800000",
     location: "London, UK",
+    summary:
+      "Strategic and adaptable Project Manager with over 5 years of experience leading cross-functional teams to deliver complex projects on time and within budget. Skilled in Agile, Scrum, and Waterfall methodologies, with a proven track record of driving operational efficiency, stakeholder alignment, and measurable business outcomes.",
   };
 
   const [savedPersonalInfo, setSavedPersonalInfo] = useState(mockPersonalInfo);
