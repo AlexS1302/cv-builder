@@ -103,6 +103,11 @@ form {
   border-radius: 8px;
   padding-left: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.education-entry:hover {
+  background-color: #a3e3f0;
 }
 
 /* Buttons */

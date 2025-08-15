@@ -56,6 +56,7 @@ function EducationSection({
   const handleDeleteEducation = (id) => {
     const newEducations = educations.filter((edu) => edu.id !== id);
     setEducations(newEducations);
+    setSavedEducationInfo(newEducations)
 
     if (newEducations.length === 0) {
       setShowForm(true);

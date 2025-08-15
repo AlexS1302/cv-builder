@@ -51,7 +51,7 @@ export default function PersonalInfoSection({
       value: personalInfo.phoneNumber,
       onChange: (e) => handleChange(e, setPersonalInfo),
       type: "tel",
-      placeholder: "+44 7700 800000",
+      placeholder: "07700 800000",
       autoComplete: "tel",
       layout: "inline",
     },

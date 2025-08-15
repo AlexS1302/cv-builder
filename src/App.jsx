@@ -21,7 +21,7 @@ function App() {
     fullName: "Jane Doe",
     jobTitle: "Project Manager",
     email: "janedoe23@gmail.com",
-    phoneNumber: "+44 7700 800000",
+    phoneNumber: "07700 800000",
     location: "London, UK",
   };
 
