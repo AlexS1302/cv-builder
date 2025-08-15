@@ -62,6 +62,7 @@ function EducationSection({
       setShowForm(true);
       setIsEditing(false);
       setEducationInfo({
+        id: "",
         institution: "",
         degree: "",
         startDate: "",

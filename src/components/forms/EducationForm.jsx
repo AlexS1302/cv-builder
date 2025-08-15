@@ -82,6 +82,7 @@ function EducationForm({
 
     //Clear form
     setEducationInfo({
+      id: "",
       institution: "",
       degree: "",
       startDate: "",
@@ -96,6 +97,7 @@ function EducationForm({
     setShowForm(false);
     setIsEditing(false);
     setEducationInfo({
+      id: "",
       institution: "",
       degree: "",
       startDate: "",

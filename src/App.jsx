@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Preview from "./components/Preview";
 import PersonalInfoSection from "./components/sections/PersonalInfoSection";
 import EducationSection from "./components/sections/EducationSection";
+import ExperienceSection from "./components/sections/ExperienceSection";
 import "./styles/App.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
@@ -31,6 +32,7 @@ function App() {
   const [savedPersonalInfo, setSavedPersonalInfo] = useState(mockPersonalInfo);
 
   const [educationInfo, setEducationInfo] = useState({
+    id: "",
     institution: "",
     degree: "",
     startDate: "",
@@ -41,18 +43,45 @@ function App() {
 
   const mockEducationInfo = [
     {
-      id: "mock-id-1",
+      id: "mock-edu-id-1",
       institution: "University of Example",
       degree: "BSc Business Management",
       startDate: "2030",
       endDate: "2033",
       location: "Oxford, UK",
-      description: 
+      description:
         "Gained hands-on experience in budgeting, risk assessment, and stakeholder communication through case studies and collaborative projects. Specialized in project management methodologies including Agile and Waterfall, and completed a capstone project on optimizing cross-functional workflows in dynamic business environments.",
     },
   ];
 
-  const [savedEducationInfo, setSavedEducationInfo] = useState(mockEducationInfo);
+  const [savedEducationInfo, setSavedEducationInfo] =
+    useState(mockEducationInfo);
+
+  const [experienceInfo, setExperienceInfo] = useState({
+    id: "",
+    employer: "",
+    jobTitle: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+    description: "",
+  });
+
+  const mockExperienceInfo = [
+    {
+      id: "mock-exp-id-1",
+      employer: "Example Solutions Ltd.",
+      jobTitle: "Project Coordinator",
+      startDate: "2033",
+      endDate: "2035",
+      location: "Oxford, UK",
+      description:
+        "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
+    },
+  ];
+
+  const [savedExperienceInfo, setSavedExperienceInfo] =
+    useState(mockExperienceInfo);
 
   const handleChange = (e, setSection) => {
     const { name, value } = e.target;
@@ -80,11 +109,19 @@ function App() {
             setSavedEducationInfo={setSavedEducationInfo}
             handleChange={handleChange}
           />
+
+          <ExperienceSection
+            experienceInfo={experienceInfo}
+            setExperienceInfo={setExperienceInfo}
+            setSavedExperienceInfo={setSavedExperienceInfo}
+            handleChange={handleChange}
+          />
         </div>
 
         <Preview
           personalInfo={savedPersonalInfo}
           educationInfo={savedEducationInfo}
+          savedExperienceInfo={savedExperienceInfo}
         />
       </main>
     </div>
