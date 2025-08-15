@@ -4,14 +4,14 @@ import { Document, Page } from "react-pdf";
 import { pdf } from "@react-pdf/renderer";
 import MyDocument from "./MyDocument";
 
-function Preview({ personalInfo, educationInfo }) {
+function Preview({ personalInfo, educationInfo, experienceInfo }) {
   const [pdfUrl, setPdfUrl] = useState(null);
   const previousUrlRef = useRef(null);
 
   useEffect(() => {
     const generatePdf = async () => {
       const blob = await pdf(
-        <MyDocument personalInfo={personalInfo} educationInfo={educationInfo} />
+        <MyDocument personalInfo={personalInfo} educationInfo={educationInfo} experienceInfo={experienceInfo} />
       ).toBlob();
 
       const newUrl = URL.createObjectURL(blob);
@@ -29,7 +29,7 @@ function Preview({ personalInfo, educationInfo }) {
     return () => {
       if (previousUrlRef.current) URL.revokeObjectURL(previousUrlRef);
     };
-  }, [personalInfo, educationInfo]);
+  }, [personalInfo, educationInfo, experienceInfo]);
 
   return (
     <div className="pdf-container">

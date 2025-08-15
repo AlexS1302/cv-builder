@@ -70,7 +70,7 @@ function App() {
   const mockExperienceInfo = [
     {
       id: "mock-exp-id-1",
-      employer: "Example Solutions Ltd.",
+      employer: "Example Solutions Ltd",
       jobTitle: "Project Coordinator",
       startDate: "2033",
       endDate: "2035",
@@ -122,7 +122,7 @@ function App() {
         <Preview
           personalInfo={savedPersonalInfo}
           educationInfo={savedEducationInfo}
-          savedExperienceInfo={savedExperienceInfo}
+          experienceInfo={savedExperienceInfo}
         />
       </main>
     </div>

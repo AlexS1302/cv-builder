@@ -54,7 +54,7 @@ function formatDate(dateStr) {
   return format(new Date(dateStr), "MMMM yyyy");
 }
 
-function MyDocument({ personalInfo, educationInfo }) {
+function MyDocument({ personalInfo, educationInfo, experienceInfo }) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -89,6 +89,25 @@ function MyDocument({ personalInfo, educationInfo }) {
               </View>
               <Text style={styles.bold}>{edu.degree}</Text>
               <Text style={styles.paddingTop}>{edu.description}</Text>
+            </View>
+          ))}
+        </View>
+          
+        {/* Experience */}
+        <View style={styles.section}>
+          <Text style={styles.heading}>Experience</Text>
+          <Text style={styles.line}></Text>
+          {experienceInfo.map((exp) => (
+            <View key={exp.id}>
+              <View style={styles.date}>
+                <Text style={styles.bold}>{exp.employer}</Text>
+                <Text style={styles.bold}>
+                  {formatDate(exp.startDate)} - {formatDate(exp.endDate)} |{" "}
+                  {exp.location}
+                </Text>
+              </View>
+              <Text style={styles.bold}>{exp.jobTitle}</Text>
+              <Text style={styles.paddingTop}>{exp.description}</Text>
             </View>
           ))}
         </View>
