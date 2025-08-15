@@ -32,8 +32,8 @@ function EducationForm({
       placeholder: "Degree",
     },
     {
-      id: "startDate",
-      name: "startDate",
+      id: "educationStartDate",
+      name: "educationStartDate",
       label: "Start Date",
       value: educationInfo.startDate,
       onChange: (e) => handleChange(e, setEducationInfo),
@@ -41,8 +41,8 @@ function EducationForm({
       layout: "inline",
     },
     {
-      id: "endDate",
-      name: "endDate",
+      id: "educationEndDate",
+      name: "educationEndDate",
       label: "End Date",
       value: educationInfo.endDate,
       onChange: (e) => handleChange(e, setEducationInfo),
@@ -50,8 +50,8 @@ function EducationForm({
       layout: "inline",
     },
     {
-      id: "location",
-      name: "location",
+      id: "educationLocation",
+      name: "educationLocation",
       label: "Location",
       value: educationInfo.location,
       onChange: (e) => handleChange(e, setEducationInfo),
@@ -60,8 +60,8 @@ function EducationForm({
       autoComplete: "address-level2",
     },
     {
-      id: "description",
-      name: "description",
+      id: "educationDescription",
+      name: "educationDescription",
       label: "Description",
       value: educationInfo.description,
       onChange: (e) => handleChange(e, setEducationInfo),

@@ -24,14 +24,13 @@ export default function PersonalInfoSection({
       autoComplete: "name",
     },
     {
-      id: "jobTitle",
-      name: "jobTitle",
+      id: "headingJobTitle",
+      name: "headingJobTitle",
       label: "Job Title",
       value: personalInfo.jobTitle,
       onChange: (e) => handleChange(e, setPersonalInfo),
       type: "text",
       placeholder: "Project Manager",
-      autoComplete: "organization-title",
     },
     {
       id: "email",
@@ -56,8 +55,8 @@ export default function PersonalInfoSection({
       layout: "inline",
     },
     {
-      id: "location",
-      name: "location",
+      id: "personalInfoLocation",
+      name: "personalInfoLocation",
       label: "Location",
       value: personalInfo.location,
       onChange: (e) => handleChange(e, setPersonalInfo),
