@@ -1,5 +1,6 @@
 .personal-info-section,
-.education-section {
+.education-section,
+.experience-section {
   display: flex;
   flex-direction: column;
   user-select: none;
@@ -9,7 +10,8 @@
 }
 
 .personal-info-section h2,
-.education-section h2 {
+.education-section h2,
+.experience-section h2 {
   cursor: pointer;
   text-align: center;
   margin: 0;
