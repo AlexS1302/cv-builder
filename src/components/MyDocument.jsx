@@ -1,4 +1,5 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { format } from "date-fns";
 
 const styles = StyleSheet.create({
   page: {
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    justifyContent:"center",
+    justifyContent: "center",
     marginBottom: 20,
     gap: 5,
   },
@@ -45,6 +46,10 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
 });
+
+function formatDate(dateStr) {
+  return format(new Date(dateStr), "MMMM yyyy");
+}
 
 function MyDocument({ personalInfo, educationInfo }) {
   return (
@@ -68,7 +73,7 @@ function MyDocument({ personalInfo, educationInfo }) {
               <View style={styles.date}>
                 <Text style={styles.bold}>{edu.institution}</Text>
                 <Text>
-                  {edu.startDate} - {edu.endDate} | {edu.location}
+                  {formatDate(edu.startDate)} - {formatDate(edu.endDate)} | {edu.location}
                 </Text>
               </View>
               <Text>{edu.degree}</Text>
