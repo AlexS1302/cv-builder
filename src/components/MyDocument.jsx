@@ -45,6 +45,9 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: 600,
   },
+  paddingTop: {
+    paddingTop: 5,
+  },
 });
 
 function formatDate(dateStr) {
@@ -79,12 +82,13 @@ function MyDocument({ personalInfo, educationInfo }) {
             <View key={edu.id}>
               <View style={styles.date}>
                 <Text style={styles.bold}>{edu.institution}</Text>
-                <Text>
+                <Text style={styles.bold}>
                   {formatDate(edu.startDate)} - {formatDate(edu.endDate)} |{" "}
                   {edu.location}
                 </Text>
               </View>
-              <Text>{edu.degree}</Text>
+              <Text style={styles.bold}>{edu.degree}</Text>
+              <Text style={styles.paddingTop}>{edu.description}</Text>
             </View>
           ))}
         </View>

@@ -36,16 +36,19 @@ function App() {
     startDate: "",
     endDate: "",
     location: "",
+    description: "",
   });
 
   const mockEducationInfo = [
     {
       id: "mock-id-1",
       institution: "University of Example",
-      degree: "BSc Computer Science",
+      degree: "BSc Business Management",
       startDate: "2030",
       endDate: "2033",
       location: "Oxford, UK",
+      description: 
+        "Gained hands-on experience in budgeting, risk assessment, and stakeholder communication through case studies and collaborative projects. Specialized in project management methodologies including Agile and Waterfall, and completed a capstone project on optimizing cross-functional workflows in dynamic business environments.",
     },
   ];
 

@@ -59,12 +59,21 @@ function EducationForm({
       placeholder: "London, UK",
       autoComplete: "address-level2",
     },
+    {
+      id: "description",
+      name: "description",
+      label: "Description",
+      value: educationInfo.description,
+      onChange: (e) => handleChange(e, setEducationInfo),
+      type: "text",
+      placeholder: "Description",
+    },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { institution, degree, startDate, endDate, location } = educationInfo;
-    if (!institution || !degree || !startDate || !endDate || !location) {
+    const { institution, degree, startDate, endDate, location, description } = educationInfo;
+    if (!institution || !degree || !startDate || !endDate || !location || !description) {
       alert("Please fill out all fields.");
       return;
     }
@@ -78,6 +87,7 @@ function EducationForm({
       startDate: "",
       endDate: "",
       location: "",
+      description: "",
     });
   };
 
@@ -91,6 +101,7 @@ function EducationForm({
       startDate: "",
       endDate: "",
       location: "",
+      description: "",
     });
   };
 

@@ -67,6 +67,7 @@ function EducationSection({
         startDate: "",
         endDate: "",
         location: "",
+        description:"",
       });
     } else {
       setShowForm(false);
