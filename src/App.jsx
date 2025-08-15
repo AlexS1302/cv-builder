@@ -83,11 +83,12 @@ function App() {
   const [savedExperienceInfo, setSavedExperienceInfo] =
     useState(mockExperienceInfo);
 
-  const handleChange = (e, setSection) => {
-    const { name, value } = e.target;
+  const handleChange = (e, setSection, key) => {
+    const { value } = e.target;
+
     setSection((prevData) => ({
       ...prevData,
-      [name]: value,
+      [key]: value,
     }));
   };
 
