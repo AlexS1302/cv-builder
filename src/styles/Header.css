@@ -1,18 +1,41 @@
-.Header {
+.header {
   background: #48cae4;
   display: flex;
   align-items: center;
-  padding-left: 5rem;
-  gap: 1rem;
+  justify-content: space-between;
+  padding-inline: 6rem;
   box-shadow: 2px 3px 5px 0 rgb(72, 202, 228, 0.3);
 }
 
-.logo {
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-logo {
   height: 40px;
   width: 40px;
 }
 
-.app-name {
+.header-title {
   color: #ffffff;
   text-align: center;
+}
+
+.download-link {
+  text-decoration: none;
+}
+
+.download-link button {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 0.9rem;
+  background-color: white;
+  font-weight: 600;
+  cursor: pointer;
 }

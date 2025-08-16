@@ -15,6 +15,8 @@ import "./styles/App.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 function App() {
+  const [pdfUrl, setPdfUrl] = useState(null);
+
   // State definitions for form input fields
   const [savedPersonalInfo, setSavedPersonalInfo] = useState(mockPersonalInfo);
   const [personalInfo, setPersonalInfo] = useState({
@@ -62,7 +64,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header pdfUrl={pdfUrl} />
+
       <main className="main">
         <div className="CVForm">
           <PersonalInfoSection
@@ -91,6 +94,8 @@ function App() {
           personalInfo={savedPersonalInfo}
           educationInfo={savedEducationInfo}
           experienceInfo={savedExperienceInfo}
+          pdfUrl={pdfUrl}
+          setPdfUrl={setPdfUrl}
         />
       </main>
     </div>
