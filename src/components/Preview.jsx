@@ -4,7 +4,13 @@ import { Document, Page } from "react-pdf";
 import { pdf } from "@react-pdf/renderer";
 import MyDocument from "./MyDocument";
 
-function Preview({ personalInfo, educationInfo, experienceInfo, pdfUrl, setPdfUrl }) {
+function Preview({
+  personalInfo,
+  educationInfo,
+  experienceInfo,
+  pdfUrl,
+  setPdfUrl,
+}) {
   const previousUrlRef = useRef(null);
   const [numPages, setNumPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -55,21 +61,31 @@ function Preview({ personalInfo, educationInfo, experienceInfo, pdfUrl, setPdfUr
           {/* Navigation Buttons */}
           {numPages > 1 && (
             <div className="pdf-navigation">
-              {currentPage > 1 && (
-                <button onClick={() => setCurrentPage((prev) => prev - 1)}>
-                  Previous
-                </button>
-              )}
+              <button
+                onClick={() => setCurrentPage((prev) => prev - 1)}
+                disabled={currentPage === 1}
+                style={{
+                  visibility: currentPage === 1 ? "hidden" : "visible",
+                }}
+                className="nav-button"
+              >
+                Previous
+              </button>
 
-              <span>
+              <span className="page-indicator">
                 {currentPage} / {numPages}
               </span>
 
-              {currentPage < numPages && (
-                <button onClick={() => setCurrentPage((prev) => prev + 1)}>
-                  Next
-                </button>
-              )}
+              <button
+                onClick={() => setCurrentPage((prev) => prev + 1)}
+                disabled={currentPage === numPages}
+                style={{
+                  visibility: currentPage === numPages ? "hidden" : "visible",
+                }}
+                className="nav-button"
+              >
+                Next
+              </button>
             </div>
           )}
         </>
