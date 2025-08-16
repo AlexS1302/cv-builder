@@ -1,4 +1,4 @@
-import FieldGroup from "../FieldGroup";
+import FieldGenerator from "../FieldGenerator";
 import { Eraser, Undo2, Brush } from "lucide-react";
 
 function EducationForm({
@@ -72,15 +72,23 @@ function EducationForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { institution, degree, startDate, endDate, location, description } = educationInfo;
-    if (!institution || !degree || !startDate || !endDate || !location || !description) {
+    const { institution, degree, startDate, endDate, location, description } =
+      educationInfo;
+    if (
+      !institution ||
+      !degree ||
+      !startDate ||
+      !endDate ||
+      !location ||
+      !description
+    ) {
       alert("Please fill out all fields.");
       return;
     }
 
     handleAddEducation();
 
-    //Clear form
+    // Clear form
     setEducationInfo({
       id: "",
       institution: "",
@@ -110,7 +118,7 @@ function EducationForm({
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <FieldGroup fields={educationFields} />
+        <FieldGenerator fields={educationFields} />
         <div className="form-btn-group">
           <button type="submit" className="save-btn">
             <Brush />

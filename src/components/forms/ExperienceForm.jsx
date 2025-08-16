@@ -1,4 +1,4 @@
-import FieldGroup from "../FieldGroup";
+import FieldGenerator from "../FieldGenerator";
 import { Eraser, Undo2, Brush } from "lucide-react";
 
 function ExperienceForm({
@@ -72,15 +72,23 @@ function ExperienceForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { employer, jobTitle, startDate, endDate, location, description } = experienceInfo;
-    if (!employer || !jobTitle || !startDate || !endDate || !location || !description) {
+    const { employer, jobTitle, startDate, endDate, location, description } =
+      experienceInfo;
+    if (
+      !employer ||
+      !jobTitle ||
+      !startDate ||
+      !endDate ||
+      !location ||
+      !description
+    ) {
       alert("Please fill out all fields.");
       return;
     }
 
     handleAddExperience();
 
-    //Clear form
+    // Clear form
     setExperienceInfo({
       id: "",
       employer: "",
@@ -110,7 +118,7 @@ function ExperienceForm({
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <FieldGroup fields={experienceFields} />
+        <FieldGenerator fields={experienceFields} />
         <div className="form-btn-group">
           <button type="submit" className="save-btn">
             <Brush />

@@ -33,7 +33,7 @@ function Preview({ personalInfo, educationInfo, experienceInfo }) {
     generatePdf();
 
     return () => {
-      if (previousUrlRef.current) URL.revokeObjectURL(previousUrlRef);
+      if (previousUrlRef.current) URL.revokeObjectURL(previousUrlRef.current);
     };
   }, [personalInfo, educationInfo, experienceInfo]);
 

@@ -56,7 +56,7 @@ function ExperienceSection({
   const handleDeleteExperience = (id) => {
     const newExperiences = experiences.filter((exp) => exp.id !== id);
     setExperiences(newExperiences);
-    setSavedExperienceInfo(newExperiences)
+    setSavedExperienceInfo(newExperiences);
 
     if (newExperiences.length === 0) {
       setShowForm(true);
@@ -68,7 +68,7 @@ function ExperienceSection({
         startDate: "",
         endDate: "",
         location: "",
-        description:"",
+        description: "",
       });
     } else {
       setShowForm(false);

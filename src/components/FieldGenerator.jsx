@@ -1,4 +1,4 @@
-function FieldGroup({ fields }) {
+function FieldGenerator({ fields }) {
   const normalFields = fields.filter((f) => f.layout !== "inline");
   const inlineFields = fields.filter((f) => f.layout === "inline");
 
@@ -59,4 +59,4 @@ function FieldGroup({ fields }) {
   );
 }
 
-export default FieldGroup;
+export default FieldGenerator;

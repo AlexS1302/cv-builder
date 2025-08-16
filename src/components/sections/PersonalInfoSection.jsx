@@ -1,6 +1,6 @@
 import "../../styles/Sections.css";
 import { useState } from "react";
-import FieldGroup from "../FieldGroup";
+import FieldGenerator from "../FieldGenerator";
 import { ChevronDown, Brush, CircleUserRound } from "lucide-react";
 
 export default function PersonalInfoSection({
@@ -77,8 +77,16 @@ export default function PersonalInfoSection({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { fullName, jobTitle, email, phoneNumber, location, summary } = personalInfo;
-    if (!fullName || !jobTitle || !email || !phoneNumber || !location || !summary) {
+    const { fullName, jobTitle, email, phoneNumber, location, summary } =
+      personalInfo;
+    if (
+      !fullName ||
+      !jobTitle ||
+      !email ||
+      !phoneNumber ||
+      !location ||
+      !summary
+    ) {
       alert("Please fill out all fields.");
       return;
     }
@@ -98,7 +106,7 @@ export default function PersonalInfoSection({
 
       <div className={`dropdown ${isOpen ? "open" : "closed"}`}>
         <form onSubmit={handleSubmit}>
-          <FieldGroup fields={personalFields} />
+          <FieldGenerator fields={personalFields} />
           <button type="submit" className="save-btn">
             <Brush />
             Save Section

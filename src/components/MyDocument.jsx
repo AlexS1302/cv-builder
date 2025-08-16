@@ -66,6 +66,7 @@ function MyDocument({ personalInfo, educationInfo, experienceInfo }) {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
+        {/* Personal Info */}
         <Text style={styles.name}>{personalInfo.fullName}</Text>
         <Text style={styles.job}>{personalInfo.jobTitle}</Text>
         <View style={styles.row}>
