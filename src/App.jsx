@@ -78,6 +78,36 @@ function App() {
       description:
         "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
     },
+    {
+      id: "mock-exp-id-2",
+      employer: "Example Solutions Ltd",
+      jobTitle: "Project Coordinator",
+      startDate: "2033",
+      endDate: "2035",
+      location: "Oxford, UK",
+      description:
+        "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
+    },
+    {
+      id: "mock-exp-id-3",
+      employer: "Example Solutions Ltd",
+      jobTitle: "Project Coordinator",
+      startDate: "2033",
+      endDate: "2035",
+      location: "Oxford, UK",
+      description:
+        "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
+    },
+    {
+      id: "mock-exp-id-4",
+      employer: "Example Solutions Ltd",
+      jobTitle: "Project Coordinator",
+      startDate: "2033",
+      endDate: "2035",
+      location: "Oxford, UK",
+      description:
+        "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
+    },
   ];
 
   const [savedExperienceInfo, setSavedExperienceInfo] =

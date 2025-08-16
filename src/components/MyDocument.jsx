@@ -48,6 +48,14 @@ const styles = StyleSheet.create({
   paddingTop: {
     paddingTop: 5,
   },
+  pageNumber: {
+    position: "absolute",
+    bottom: 30,
+    left: "50%",
+    transform: "translateX(-50%)",
+    fontSize: 12,
+    color: "gray",
+  },
 });
 
 function formatDate(dateStr) {
@@ -79,7 +87,7 @@ function MyDocument({ personalInfo, educationInfo, experienceInfo }) {
           <Text style={styles.heading}>Education</Text>
           <Text style={styles.line}></Text>
           {educationInfo.map((edu) => (
-            <View key={edu.id}>
+            <View key={edu.id} wrap={false}>
               <View style={styles.date}>
                 <Text style={styles.bold}>{edu.institution}</Text>
                 <Text style={styles.bold}>
@@ -92,13 +100,13 @@ function MyDocument({ personalInfo, educationInfo, experienceInfo }) {
             </View>
           ))}
         </View>
-          
+
         {/* Experience */}
         <View style={styles.section}>
           <Text style={styles.heading}>Experience</Text>
           <Text style={styles.line}></Text>
           {experienceInfo.map((exp) => (
-            <View key={exp.id}>
+            <View key={exp.id} wrap={false}>
               <View style={styles.date}>
                 <Text style={styles.bold}>{exp.employer}</Text>
                 <Text style={styles.bold}>
