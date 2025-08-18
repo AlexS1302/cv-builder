@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ExperienceForm from "../forms/ExperienceForm";
 import ExperienceList from "../lists/ExperienceList";
+import { mockExperienceInfo } from "../../mockData";
 import "../../styles/Sections.css";
 import { ChevronDown, BriefcaseBusiness } from "lucide-react";
 
@@ -10,9 +11,9 @@ function ExperienceSection({
   setSavedExperienceInfo,
   handleChange,
 }) {
-  const [experiences, setExperiences] = useState([]);
+  const [experiences, setExperiences] = useState(mockExperienceInfo);
   const [isOpen, setIsOpen] = useState(false);
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
@@ -58,21 +59,18 @@ function ExperienceSection({
     setExperiences(newExperiences);
     setSavedExperienceInfo(newExperiences);
 
-    if (newExperiences.length === 0) {
-      setShowForm(true);
-      setIsEditing(false);
-      setExperienceInfo({
-        id: "",
-        employer: "",
-        jobTitle: "",
-        startDate: "",
-        endDate: "",
-        location: "",
-        description: "",
-      });
-    } else {
-      setShowForm(false);
-    }
+    newExperiences.length === 0 ? setShowForm(true) : setShowForm(false);
+
+    setIsEditing(false);
+    setExperienceInfo({
+      id: "",
+      employer: "",
+      jobTitle: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+    });
   };
 
   // Grouping props to reduce clutter in the return statement

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import EducationForm from "../forms/EducationForm";
 import EducationList from "../lists/EducationList";
+import { mockEducationInfo } from "../../mockData";
 import "../../styles/Sections.css";
 import { ChevronDown, LibraryBig } from "lucide-react";
 
@@ -10,9 +11,9 @@ function EducationSection({
   setSavedEducationInfo,
   handleChange,
 }) {
-  const [educations, setEducations] = useState([]);
+  const [educations, setEducations] = useState(mockEducationInfo);
   const [isOpen, setIsOpen] = useState(false);
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
@@ -58,21 +59,18 @@ function EducationSection({
     setEducations(newEducations);
     setSavedEducationInfo(newEducations);
 
-    if (newEducations.length === 0) {
-      setShowForm(true);
-      setIsEditing(false);
-      setEducationInfo({
-        id: "",
-        institution: "",
-        degree: "",
-        startDate: "",
-        endDate: "",
-        location: "",
-        description: "",
-      });
-    } else {
-      setShowForm(false);
-    }
+    newEducations.length === 0 ? setShowForm(true) : setShowForm(false);
+
+    setIsEditing(false);
+    setEducationInfo({
+      id: "",
+      institution: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+    });
   };
 
   // Grouping props to reduce clutter in the return statement

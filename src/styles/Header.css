@@ -42,11 +42,11 @@
 }
 
 .download-link button:hover {
-  transform: translate(-2.5px, -2.5px);
-  box-shadow: 2.5px 2.5px lightgrey;
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px lightgrey;
 }
 
 .download-link button:active {
-  transform: translate(2.5px, 2.5px);
-  box-shadow: 2.5px 2.5px lightgrey;
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px lightgrey;
 }
