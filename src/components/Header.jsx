@@ -11,7 +11,7 @@ function Header({ pdfUrl }) {
       </div>
       <a href={pdfUrl} download={"resume.pdf"} className="download-link">
         <button>
-          <Download />
+          <Download className="download-icon"/>
           Download PDF
         </button>
       </a>

@@ -11,10 +11,20 @@ const mockPersonalInfo = {
 const mockEducationInfo = [
   {
     id: "mock-edu-id-1",
+    institution: "London School of Business and Finance",
+    degree: "MSc Strategic Marketing",
+    startDate: "2025",
+    endDate: "2026",
+    location: "London, UK",
+    description:
+      "Developed advanced skills in market analysis, brand strategy, and consumer behaviour through real-world simulations and industry-led workshops. Led a team project on digital campaign optimization using data-driven insights, and authored a thesis on the impact of emerging technologies on customer engagement in retail sectors.",
+  },
+  {
+    id: "mock-edu-id-2",
     institution: "University of Example",
     degree: "BSc Business Management",
-    startDate: "2030",
-    endDate: "2033",
+    startDate: "2022",
+    endDate: "2025",
     location: "Oxford, UK",
     description:
       "Gained hands-on experience in budgeting, risk assessment, and stakeholder communication through case studies and collaborative projects. Specialized in project management methodologies including Agile and Waterfall, and completed a capstone project on optimizing cross-functional workflows in dynamic business environments.",
@@ -34,33 +44,33 @@ const mockExperienceInfo = [
   },
   {
     id: "mock-exp-id-2",
-    employer: "Example Solutions Ltd",
-    jobTitle: "Project Coordinator",
-    startDate: "2033",
-    endDate: "2035",
-    location: "Oxford, UK",
+    employer: "UrbanBuild Developments Ltd",
+    jobTitle: "Construction Project Manager",
+    startDate: "2030",
+    endDate: "2033",
+    location: "Manchester, UK",
     description:
-      "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
+      "Led the planning and execution of residential and commercial construction projects valued at over £10M. Oversaw contractor performance, ensured compliance with safety regulations, and maintained project schedules. Introduced a digital project tracking system that reduced delays by 18%.",
   },
   {
     id: "mock-exp-id-3",
-    employer: "Example Solutions Ltd",
-    jobTitle: "Project Coordinator",
-    startDate: "2033",
-    endDate: "2035",
-    location: "Oxford, UK",
+    employer: "TechNova Systems",
+    jobTitle: "IT Project Manager",
+    startDate: "2028",
+    endDate: "2030",
+    location: "London, UK",
     description:
-      "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
+      "Managed end-to-end delivery of enterprise software solutions for financial clients. Coordinated with developers, QA teams, and external vendors to meet strict regulatory deadlines. Spearheaded a cloud migration project that cut infrastructure costs by 30%.",
   },
   {
     id: "mock-exp-id-4",
-    employer: "Example Solutions Ltd",
-    jobTitle: "Project Coordinator",
-    startDate: "2033",
-    endDate: "2035",
-    location: "Oxford, UK",
+    employer: "MedCore Innovations",
+    jobTitle: "Healthcare Project Manager",
+    startDate: "2026",
+    endDate: "2028",
+    location: "Birmingham, UK",
     description:
-      "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
+      "Directed implementation of electronic health record systems across multiple NHS trusts. Facilitated training programs for over 500 staff members and ensured seamless data integration. Achieved a 40% improvement in patient data accessibility and reporting accuracy.",
   },
 ];
 

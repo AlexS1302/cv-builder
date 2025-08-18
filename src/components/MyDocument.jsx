@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
   },
   section: {
-    marginBottom: 20,
+    marginBottom: 15,
     flexDirection: "column",
     gap: 10,
   },
@@ -45,8 +45,9 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: 600,
   },
-  paddingTop: {
+  paddingInline: {
     paddingTop: 5,
+    paddingBottom: 10,
   },
   pageNumber: {
     position: "absolute",
@@ -56,6 +57,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "gray",
   },
+  summary: {
+    marginBottom: 5,
+  }
 });
 
 function formatDate(dateStr) {
@@ -74,13 +78,13 @@ function MyDocument({ personalInfo, educationInfo, experienceInfo }) {
           <Text>·</Text>
           <Text>{personalInfo.phoneNumber}</Text>
           <Text>·</Text>
-          <Text>{personalInfo.location}</Text>
+          <Text styles={styles.paddingInline}>{personalInfo.location}</Text>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.heading}>Summary</Text>
           <Text style={styles.line}></Text>
-          <Text>{personalInfo.summary}</Text>
+          <Text style={styles.summary}>{personalInfo.summary}</Text>
         </View>
 
         {/* Education */}
@@ -97,7 +101,7 @@ function MyDocument({ personalInfo, educationInfo, experienceInfo }) {
                 </Text>
               </View>
               <Text style={styles.bold}>{edu.degree}</Text>
-              <Text style={styles.paddingTop}>{edu.description}</Text>
+              <Text style={styles.paddingInline}>{edu.description}</Text>
             </View>
           ))}
         </View>
@@ -116,7 +120,7 @@ function MyDocument({ personalInfo, educationInfo, experienceInfo }) {
                 </Text>
               </View>
               <Text style={styles.bold}>{exp.jobTitle}</Text>
-              <Text style={styles.paddingTop}>{exp.description}</Text>
+              <Text style={styles.paddingInline}>{exp.description}</Text>
             </View>
           ))}
         </View>
