@@ -1,14 +1,14 @@
 import "../../styles/Sections.css";
 import { useState } from "react";
 import FieldGenerator from "../FieldGenerator";
+import { mockPersonalInfo } from "../../mockData";
 import { ChevronDown, Brush, CircleUserRound } from "lucide-react";
 
 export default function PersonalInfoSection({
-  personalInfo,
-  setPersonalInfo,
   setSavedPersonalInfo,
   handleChange,
 }) {
+  const [personalInfo, setPersonalInfo] = useState(mockPersonalInfo);
   const [isOpen, setIsOpen] = useState(true);
 
   // Field definitions for generating personal info input fields

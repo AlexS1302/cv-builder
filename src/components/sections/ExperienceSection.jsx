@@ -5,12 +5,16 @@ import { mockExperienceInfo } from "../../mockData";
 import "../../styles/Sections.css";
 import { ChevronDown, BriefcaseBusiness } from "lucide-react";
 
-function ExperienceSection({
-  experienceInfo,
-  setExperienceInfo,
-  setSavedExperienceInfo,
-  handleChange,
-}) {
+function ExperienceSection({ setSavedExperienceInfo, handleChange }) {
+  const [experienceInfo, setExperienceInfo] = useState({
+    id: "",
+    employer: "",
+    jobTitle: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+    description: "",
+  });
   const [experiences, setExperiences] = useState(mockExperienceInfo);
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);

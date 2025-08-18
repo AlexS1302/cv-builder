@@ -5,12 +5,16 @@ import { mockEducationInfo } from "../../mockData";
 import "../../styles/Sections.css";
 import { ChevronDown, LibraryBig } from "lucide-react";
 
-function EducationSection({
-  educationInfo,
-  setEducationInfo,
-  setSavedEducationInfo,
-  handleChange,
-}) {
+function EducationSection({ setSavedEducationInfo, handleChange }) {
+  const [educationInfo, setEducationInfo] = useState({
+    id: "",
+    institution: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+    description: "",
+  });
   const [educations, setEducations] = useState(mockEducationInfo);
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);

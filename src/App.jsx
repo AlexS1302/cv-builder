@@ -15,52 +15,22 @@ import "./styles/App.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 function App() {
-  const [pdfUrl, setPdfUrl] = useState(null);
-
-  // State definitions for form input fields
   const [savedPersonalInfo, setSavedPersonalInfo] = useState(mockPersonalInfo);
-  const [personalInfo, setPersonalInfo] = useState({
-    fullName: "",
-    jobTitle: "",
-    email: "",
-    phoneNumber: "",
-    location: "",
-    summary: "",
-  });
-
   const [savedEducationInfo, setSavedEducationInfo] =
     useState(mockEducationInfo);
-  const [educationInfo, setEducationInfo] = useState({
-    id: "",
-    institution: "",
-    degree: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-    description: "",
-  });
 
   const [savedExperienceInfo, setSavedExperienceInfo] =
     useState(mockExperienceInfo);
-  const [experienceInfo, setExperienceInfo] = useState({
-    id: "",
-    employer: "",
-    jobTitle: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-    description: "",
-  });
 
-  // Change handler for form input fields
   const handleChange = (e, setSection, key) => {
     const { value } = e.target;
-
     setSection((prevData) => ({
       ...prevData,
       [key]: value,
     }));
   };
+
+  const [pdfUrl, setPdfUrl] = useState(null);
 
   return (
     <div className="App">
@@ -69,22 +39,16 @@ function App() {
       <main className="main">
         <div className="CVForm">
           <PersonalInfoSection
-            personalInfo={personalInfo}
-            setPersonalInfo={setPersonalInfo}
             setSavedPersonalInfo={setSavedPersonalInfo}
             handleChange={handleChange}
           />
 
           <EducationSection
-            educationInfo={educationInfo}
-            setEducationInfo={setEducationInfo}
             setSavedEducationInfo={setSavedEducationInfo}
             handleChange={handleChange}
           />
 
           <ExperienceSection
-            experienceInfo={experienceInfo}
-            setExperienceInfo={setExperienceInfo}
             setSavedExperienceInfo={setSavedExperienceInfo}
             handleChange={handleChange}
           />
