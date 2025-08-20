@@ -165,3 +165,7 @@ form {
 .cancel-btn:hover {
   background-color: #ffc300;
 }
+
+h2, button, a {
+  -webkit-tap-highlight-color: transparent;
+}

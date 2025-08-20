@@ -4,7 +4,7 @@ import { Download } from "lucide-react";
 
 function Header({ pdfUrl }) {
   return (
-    <div className="header">
+    <div className="Header">
       <div className="branding">
         <img src={HeaderIcon} alt="logo" className="header-logo"></img>
         <h1 className="header-title">CV Builder</h1>

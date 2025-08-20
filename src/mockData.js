@@ -5,7 +5,7 @@ const mockPersonalInfo = {
   phoneNumber: "07700 800000",
   location: "London, UK",
   summary:
-    "Strategic and adaptable Project Manager with over 5 years of experience leading cross-functional teams to deliver complex projects on time and within budget. Skilled in Agile, Scrum, and Waterfall methodologies, with a proven track record of driving operational efficiency, stakeholder alignment, and measurable business outcomes.",
+    "Strategic and adaptable Project Manager with over 10 years of experience leading cross-functional teams to deliver complex projects on time and within budget. Skilled in Agile, Scrum, and Waterfall methodologies, with a proven track record of driving operational efficiency, stakeholder alignment, and measurable business outcomes.",
 };
 
 const mockEducationInfo = [
@@ -37,7 +37,7 @@ const mockExperienceInfo = [
     employer: "Example Solutions Ltd",
     jobTitle: "Project Coordinator",
     startDate: "2033-03-26",
-    endDate: "2035-07-18",
+    endDate: "2037-07-18",
     location: "Oxford, UK",
     description:
       "Coordinated cross-functional teams to deliver client projects on time and within budget. Managed project timelines, facilitated stakeholder meetings, and implemented Agile workflows to improve team efficiency. Played a key role in launching a new internal CRM system, resulting in a 25% increase in client retention.",
