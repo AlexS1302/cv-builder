@@ -2,7 +2,6 @@ import { useState } from "react";
 import EducationForm from "../forms/EducationForm";
 import EducationList from "../lists/EducationList";
 import { mockEducationInfo } from "../../mockData";
-import "../../styles/Sections.css";
 import { ChevronDown, LibraryBig } from "lucide-react";
 
 function EducationSection({

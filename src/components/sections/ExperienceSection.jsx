@@ -2,7 +2,6 @@ import { useState } from "react";
 import ExperienceForm from "../forms/ExperienceForm";
 import ExperienceList from "../lists/ExperienceList";
 import { mockExperienceInfo } from "../../mockData";
-import "../../styles/Sections.css";
 import { ChevronDown, BriefcaseBusiness } from "lucide-react";
 
 function ExperienceSection({

@@ -12,11 +12,3 @@
   padding: 2rem;
   gap: 1rem;
 }
-
-.CVForm {
-  grid-area: form;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  gap: 1rem;
-}

@@ -1,4 +1,3 @@
-import "../../styles/Sections.css";
 import { useState } from "react";
 import FieldGenerator from "../FieldGenerator";
 import { mockPersonalInfo } from "../../mockData";

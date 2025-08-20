@@ -1,3 +1,11 @@
+.CVForms {
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+}
+
 .personal-info-section,
 .education-section,
 .experience-section {

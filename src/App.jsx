@@ -2,9 +2,7 @@ import { pdfjs } from "react-pdf";
 import { useState } from "react";
 import Header from "./components/Header";
 import Preview from "./components/Preview";
-import PersonalInfoSection from "./components/sections/PersonalInfoSection";
-import EducationSection from "./components/sections/EducationSection";
-import ExperienceSection from "./components/sections/ExperienceSection";
+import CVForms from "./components/CVForms";
 import {
   mockPersonalInfo,
   mockEducationInfo,
@@ -16,11 +14,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/b
 
 function App() {
   const [pdfUrl, setPdfUrl] = useState(null);
-  const [openSection, setOpenSection] = useState(null);
   const [savedPersonalInfo, setSavedPersonalInfo] = useState(mockPersonalInfo);
   const [savedEducationInfo, setSavedEducationInfo] =
     useState(mockEducationInfo);
-
   const [savedExperienceInfo, setSavedExperienceInfo] =
     useState(mockExperienceInfo);
 
@@ -32,37 +28,17 @@ function App() {
     }));
   };
 
-  const handleToggle = (sectionName) => {
-    setOpenSection((prev) => (prev === sectionName ? null : sectionName));
-  };
-
   return (
     <div className="App">
       <Header pdfUrl={pdfUrl} />
 
       <main className="main">
-        <div className="CVForm">
-          <PersonalInfoSection
-            isOpen={openSection === "personal"}
-            toggleOpen={() => handleToggle("personal")}
-            setSavedPersonalInfo={setSavedPersonalInfo}
-            handleChange={handleChange}
-          />
-
-          <EducationSection
-            isOpen={openSection == "education"}
-            toggleOpen={() => handleToggle("education")}
-            setSavedEducationInfo={setSavedEducationInfo}
-            handleChange={handleChange}
-          />
-
-          <ExperienceSection
-            isOpen={openSection == "experience"}
-            toggleOpen={() => handleToggle("experience")}
-            setSavedExperienceInfo={setSavedExperienceInfo}
-            handleChange={handleChange}
-          />
-        </div>
+        <CVForms
+          setSavedPersonalInfo={setSavedPersonalInfo}
+          setSavedEducationInfo={setSavedEducationInfo}
+          setSavedExperienceInfo={setSavedExperienceInfo}
+          handleChange={handleChange}
+        />
 
         <Preview
           personalInfo={savedPersonalInfo}
