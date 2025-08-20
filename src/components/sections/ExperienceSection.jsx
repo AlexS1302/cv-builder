@@ -5,7 +5,12 @@ import { mockExperienceInfo } from "../../mockData";
 import "../../styles/Sections.css";
 import { ChevronDown, BriefcaseBusiness } from "lucide-react";
 
-function ExperienceSection({ setSavedExperienceInfo, handleChange }) {
+function ExperienceSection({
+  isOpen,
+  toggleOpen,
+  setSavedExperienceInfo,
+  handleChange,
+}) {
   const [experienceInfo, setExperienceInfo] = useState({
     id: "",
     employer: "",
@@ -16,11 +21,8 @@ function ExperienceSection({ setSavedExperienceInfo, handleChange }) {
     description: "",
   });
   const [experiences, setExperiences] = useState(mockExperienceInfo);
-  const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-
-  const toggleOpen = () => setIsOpen((prev) => !prev);
 
   // Helpers
   const handleAddExperience = () => {

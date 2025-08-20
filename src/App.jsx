@@ -15,6 +15,8 @@ import "./styles/App.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 function App() {
+  const [pdfUrl, setPdfUrl] = useState(null);
+  const [openSection, setOpenSection] = useState(null);
   const [savedPersonalInfo, setSavedPersonalInfo] = useState(mockPersonalInfo);
   const [savedEducationInfo, setSavedEducationInfo] =
     useState(mockEducationInfo);
@@ -30,7 +32,9 @@ function App() {
     }));
   };
 
-  const [pdfUrl, setPdfUrl] = useState(null);
+  const handleToggle = (sectionName) => {
+    setOpenSection((prev) => (prev === sectionName ? null : sectionName));
+  };
 
   return (
     <div className="App">
@@ -39,16 +43,22 @@ function App() {
       <main className="main">
         <div className="CVForm">
           <PersonalInfoSection
+            isOpen={openSection === "personal"}
+            toggleOpen={() => handleToggle("personal")}
             setSavedPersonalInfo={setSavedPersonalInfo}
             handleChange={handleChange}
           />
 
           <EducationSection
+            isOpen={openSection == "education"}
+            toggleOpen={() => handleToggle("education")}
             setSavedEducationInfo={setSavedEducationInfo}
             handleChange={handleChange}
           />
 
           <ExperienceSection
+            isOpen={openSection == "experience"}
+            toggleOpen={() => handleToggle("experience")}
             setSavedExperienceInfo={setSavedExperienceInfo}
             handleChange={handleChange}
           />

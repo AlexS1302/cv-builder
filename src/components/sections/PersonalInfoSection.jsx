@@ -5,11 +5,12 @@ import { mockPersonalInfo } from "../../mockData";
 import { ChevronDown, Brush, CircleUserRound } from "lucide-react";
 
 export default function PersonalInfoSection({
+  isOpen,
+  toggleOpen,
   setSavedPersonalInfo,
   handleChange,
 }) {
   const [personalInfo, setPersonalInfo] = useState(mockPersonalInfo);
-  const [isOpen, setIsOpen] = useState(true);
 
   // Field definitions for generating personal info input fields
   const personalFields = [
@@ -93,8 +94,6 @@ export default function PersonalInfoSection({
 
     setSavedPersonalInfo(personalInfo);
   };
-
-  const toggleOpen = () => setIsOpen((prev) => !prev);
 
   return (
     <section className="personal-info-section">

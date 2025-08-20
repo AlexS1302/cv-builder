@@ -5,7 +5,12 @@ import { mockEducationInfo } from "../../mockData";
 import "../../styles/Sections.css";
 import { ChevronDown, LibraryBig } from "lucide-react";
 
-function EducationSection({ setSavedEducationInfo, handleChange }) {
+function EducationSection({
+  isOpen,
+  toggleOpen,
+  setSavedEducationInfo,
+  handleChange,
+}) {
   const [educationInfo, setEducationInfo] = useState({
     id: "",
     institution: "",
@@ -16,11 +21,8 @@ function EducationSection({ setSavedEducationInfo, handleChange }) {
     description: "",
   });
   const [educations, setEducations] = useState(mockEducationInfo);
-  const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-
-  const toggleOpen = () => setIsOpen((prev) => !prev);
 
   // Helpers
   const handleAddEducation = () => {
