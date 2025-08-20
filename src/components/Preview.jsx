@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { Document, Page } from "react-pdf";
 import { pdf } from "@react-pdf/renderer";
 import MyDocument from "./MyDocument";
+import useContainerWidth from "../hooks/useContainerWidth";
 
 function Preview({
   personalInfo,
@@ -14,6 +15,7 @@ function Preview({
   const previousUrlRef = useRef(null);
   const [numPages, setNumPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const { width, containerRef } = useContainerWidth();
 
   useEffect(() => {
     const generatePdf = async () => {
@@ -43,7 +45,7 @@ function Preview({
   }, [personalInfo, educationInfo, experienceInfo, setPdfUrl]);
 
   return (
-    <div className="pdf-container">
+    <div className="pdf-container" ref={containerRef}>
       {pdfUrl && (
         <>
           <Document
@@ -52,7 +54,7 @@ function Preview({
           >
             <Page
               pageNumber={currentPage}
-              scale={1.5}
+              width={width}
               renderAnnotationLayer={false}
               renderTextLayer={false}
             />
