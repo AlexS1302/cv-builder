@@ -42,3 +42,12 @@
 .nav-button:hover {
   background-color: #00b4d8;
 }
+
+@media (max-width: 1280px) {
+  .page-indicator { 
+    font-size: 0.8rem;
+  }
+  .nav-button {
+    font-size: 0.8rem;
+  }
+}
