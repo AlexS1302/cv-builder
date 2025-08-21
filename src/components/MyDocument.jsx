@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
   summary: {
     marginBottom: 5,
-  }
+  },
 });
 
 function formatDate(dateStr) {
@@ -88,42 +88,46 @@ function MyDocument({ personalInfo, educationInfo, experienceInfo }) {
         </View>
 
         {/* Education */}
-        <View style={styles.section}>
-          <Text style={styles.heading}>Education</Text>
-          <Text style={styles.line}></Text>
-          {educationInfo.map((edu) => (
-            <View key={edu.id} wrap={false}>
-              <View style={styles.date}>
-                <Text style={styles.bold}>{edu.institution}</Text>
-                <Text style={styles.bold}>
-                  {formatDate(edu.startDate)} - {formatDate(edu.endDate)} |{" "}
-                  {edu.location}
-                </Text>
+        {educationInfo.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.heading}>Education</Text>
+            <Text style={styles.line}></Text>
+            {educationInfo.map((edu) => (
+              <View key={edu.id} wrap={false}>
+                <View style={styles.date}>
+                  <Text style={styles.bold}>{edu.institution}</Text>
+                  <Text style={styles.bold}>
+                    {formatDate(edu.startDate)} - {formatDate(edu.endDate)} |{" "}
+                    {edu.location}
+                  </Text>
+                </View>
+                <Text style={styles.bold}>{edu.degree}</Text>
+                <Text style={styles.paddingInline}>{edu.description}</Text>
               </View>
-              <Text style={styles.bold}>{edu.degree}</Text>
-              <Text style={styles.paddingInline}>{edu.description}</Text>
-            </View>
-          ))}
-        </View>
+            ))}
+          </View>
+        )}
 
         {/* Experience */}
-        <View style={styles.section}>
-          <Text style={styles.heading}>Experience</Text>
-          <Text style={styles.line}></Text>
-          {experienceInfo.map((exp) => (
-            <View key={exp.id} wrap={false}>
-              <View style={styles.date}>
-                <Text style={styles.bold}>{exp.employer}</Text>
-                <Text style={styles.bold}>
-                  {formatDate(exp.startDate)} - {formatDate(exp.endDate)} |{" "}
-                  {exp.location}
-                </Text>
+        {experienceInfo.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.heading}>Experience</Text>
+            <Text style={styles.line}></Text>
+            {experienceInfo.map((exp) => (
+              <View key={exp.id} wrap={false}>
+                <View style={styles.date}>
+                  <Text style={styles.bold}>{exp.employer}</Text>
+                  <Text style={styles.bold}>
+                    {formatDate(exp.startDate)} - {formatDate(exp.endDate)} |{" "}
+                    {exp.location}
+                  </Text>
+                </View>
+                <Text style={styles.bold}>{exp.jobTitle}</Text>
+                <Text style={styles.paddingInline}>{exp.description}</Text>
               </View>
-              <Text style={styles.bold}>{exp.jobTitle}</Text>
-              <Text style={styles.paddingInline}>{exp.description}</Text>
-            </View>
-          ))}
-        </View>
+            ))}
+          </View>
+        )}
       </Page>
     </Document>
   );
