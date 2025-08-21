@@ -1,12 +1,32 @@
-# React + Vite
+# CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
+A responsive CV Builder built with React, featuring live document preview, multi-page pagination and downloadable PDF.
 
-Currently, two official plugins are available:
+## Features
+* __Document Preview__: Preview your CV as you build it.
+* __Pagination__: Navigate multi-page CVs with built-in page controls.
+* __Downloadable PDF__: Download your finished CV in a clean, print-ready format.
+* __Responsive Design__: Optimized for desktops, tablets, and mobile devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+* React
+* Vite
+* date-fns (for handling time formatting)
+* react-pdf (for real-time document preview)
+* @react-pdf/renderer (for PDF generation)
 
-## Expanding the ESLint configuration
+## Project Link
+You can view this project [here](https://alexs1302-cv-builder.vercel.app/)!
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Interface (Screenshot)
+### Desktop View
+![Screenshot of the CV Builder interface on desktop](public/images/desktop-view.png)
+
+### Mobile view
+![Screenshot of the form interface on mobile](public/images/mobile-form-preview.png)
+
+![Screenshot of the pdf preview on mobile](public/images/mobile-pdf-preview.png)
+
+## Credits
+This project was created as part of The Odin Project's curriculum, a free online resource for learning web development.
