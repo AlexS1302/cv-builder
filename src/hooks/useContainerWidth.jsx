@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-function useContainerWidth(initialWidth = 400) {
+function useContainerWidth(initialWidth = null) {
   const [width, setWidth] = useState(initialWidth);
   const containerRef = useRef();
 

@@ -52,12 +52,14 @@ function Preview({
             file={pdfUrl}
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
           >
-            <Page
-              pageNumber={currentPage}
-              width={width}
-              renderAnnotationLayer={false}
-              renderTextLayer={false}
-            />
+            {width && (
+              <Page
+                pageNumber={currentPage}
+                width={width}
+                renderAnnotationLayer={false}
+                renderTextLayer={false}
+              />
+            )}
           </Document>
 
           {/* Navigation Buttons */}

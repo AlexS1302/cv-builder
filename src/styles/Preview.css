@@ -13,8 +13,7 @@
   align-items: center;
   border: 3px solid rgb(144, 224, 239);
   width: 100%;
-  max-width: 100vw;
-  overflow-x: auto;
+  max-width: 100%;
 }
 
 .pdf-navigation {
@@ -27,6 +26,7 @@
 
 .page-indicator {
   font-weight: 600;
+  font-size: clamp(0.5rem, 1.2vw + 0.3rem, 1rem);
 }
 
 .nav-button {
@@ -39,17 +39,10 @@
   color: white;
   font-weight: 500;
   transition: background-color 0.3s ease;
+  font-size: clamp(0.5rem, 1.2vw + 0.3rem, 1rem);
 }
+
 
 .nav-button:hover {
   background-color: #00b4d8;
-}
-
-@media (max-width: 1280px) {
-  .page-indicator { 
-    font-size: 0.8rem;
-  }
-  .nav-button {
-    font-size: 0.8rem;
-  }
 }
