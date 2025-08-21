@@ -19,7 +19,7 @@ A responsive CV Builder built with React, featuring live document preview, multi
 ## Project Link
 You can view this project [here](https://alexs1302-cv-builder.vercel.app/)!
 
-## Project Interface (Screenshot)
+## Project Interface (Screenshots)
 ### Desktop View
 ![Screenshot of the CV Builder interface on desktop](public/images/desktop-view.png)
 
