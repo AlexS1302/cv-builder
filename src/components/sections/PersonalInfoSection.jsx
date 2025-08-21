@@ -97,7 +97,7 @@ export default function PersonalInfoSection({
   return (
     <section className="personal-info-section">
       <h2 onClick={toggleOpen}>
-        <CircleUserRound />
+        <CircleUserRound className="icon"/>
         Personal Information{" "}
         <ChevronDown className={`icon ${isOpen ? "open" : "closed"}`} />
       </h2>
@@ -107,7 +107,7 @@ export default function PersonalInfoSection({
           <FieldGenerator fields={personalFields} />
           <button type="submit" className="save-btn">
             <Brush />
-            Save Section
+            Save
           </button>
         </form>
       </div>

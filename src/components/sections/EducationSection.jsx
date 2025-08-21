@@ -94,7 +94,7 @@ function EducationSection({
   return (
     <section className="education-section">
       <h2 onClick={toggleOpen}>
-        <LibraryBig />
+        <LibraryBig className="icon"/>
         Education{" "}
         <ChevronDown className={`icon ${isOpen ? "open" : "closed"}`} />
       </h2>

@@ -1,6 +1,13 @@
+import useBreakpoint from "../hooks/useBreakpoint";
+
 function FieldGenerator({ fields }) {
-  const normalFields = fields.filter((f) => f.layout !== "inline");
-  const inlineFields = fields.filter((f) => f.layout === "inline");
+  const isMobile = useBreakpoint("(max-width: 1024px)");
+  const normalFields = isMobile
+    ? fields
+    : fields.filter((f) => f.layout !== "inline");
+  const inlineFields = isMobile
+    ? []
+    : fields.filter((f) => f.layout === "inline");
 
   const firstNormalFields = normalFields.slice(0, 2);
   const remainingNormalFields = normalFields.slice(2);

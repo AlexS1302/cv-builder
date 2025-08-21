@@ -94,7 +94,7 @@ function ExperienceSection({
   return (
     <section className="experience-section">
       <h2 onClick={toggleOpen}>
-        <BriefcaseBusiness />
+        <BriefcaseBusiness className="icon"/>
         Experience{" "}
         <ChevronDown className={`icon ${isOpen ? "open" : "closed"}`} />
       </h2>

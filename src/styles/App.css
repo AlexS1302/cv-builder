@@ -8,7 +8,13 @@
   display: grid;
   grid-template-columns: 1.5fr 2fr;
   grid-template-areas: "form preview";
-  flex: 1;
   padding: 2rem;
   gap: 1rem;
 }
+
+@media (max-width: 1024px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+

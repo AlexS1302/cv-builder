@@ -122,7 +122,7 @@ function ExperienceForm({
         <div className="form-btn-group">
           <button type="submit" className="save-btn">
             <Brush />
-            Save Section
+            Save
           </button>
 
           {(isEditing || experiences.length > 0) && (

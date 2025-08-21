@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 
-function useContainerWidth(initialWidth = 600) {
+function useContainerWidth(initialWidth = 400) {
   const [width, setWidth] = useState(initialWidth);
-  const containerRef = useRef(null);
+  const containerRef = useRef();
 
   useEffect(() => {
     const observer = new ResizeObserver((entries) => {

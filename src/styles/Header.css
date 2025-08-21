@@ -29,7 +29,7 @@
   transform: translateZ(0px);
 }
 
-.download-link button {
+.download-link button, .toggle-button {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -44,12 +44,19 @@
   transition: transform 0.2s ease; 
 }
 
-.download-link button:hover {
+.download-link button:hover, .toggle-button:hover {
   transform: translate(-3px, -3px);
   box-shadow: 3px 3px lightgrey;
 }
 
-.download-link button:active {
+.download-link button:active, .toggle-button:active {
   transform: translate(3px, 3px);
   box-shadow: 3px 3px lightgrey;
+}
+
+@media (max-width: 1024px) {
+  .Header {
+    padding: 1rem;
+    justify-content: center;
+  }
 }

@@ -8,12 +8,16 @@ import {
   mockEducationInfo,
   mockExperienceInfo,
 } from "./mockData";
+import useBreakpoint from "./hooks/useBreakpoint";
 import "./styles/App.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 function App() {
+  const isMobile = useBreakpoint("(max-width: 1024px)");
+  const [showCVForms, setShowCVForms] = useState(true);
   const [pdfUrl, setPdfUrl] = useState(null);
+
   const [savedPersonalInfo, setSavedPersonalInfo] = useState(mockPersonalInfo);
   const [savedEducationInfo, setSavedEducationInfo] =
     useState(mockEducationInfo);
@@ -30,23 +34,40 @@ function App() {
 
   return (
     <div className="App">
-      <Header pdfUrl={pdfUrl} />
+      <Header
+        isMobile={isMobile}
+        showCVForms={showCVForms}
+        setShowCVForms={setShowCVForms}
+        pdfUrl={pdfUrl}
+      />
 
       <main className="main">
-        <CVForms
-          setSavedPersonalInfo={setSavedPersonalInfo}
-          setSavedEducationInfo={setSavedEducationInfo}
-          setSavedExperienceInfo={setSavedExperienceInfo}
-          handleChange={handleChange}
-        />
+        <div
+          style={{
+            display: isMobile && !showCVForms ? "none" : "block",
+          }}
+        >
+          <CVForms
+            setSavedPersonalInfo={setSavedPersonalInfo}
+            setSavedEducationInfo={setSavedEducationInfo}
+            setSavedExperienceInfo={setSavedExperienceInfo}
+            handleChange={handleChange}
+          />
+        </div>
 
-        <Preview
-          personalInfo={savedPersonalInfo}
-          educationInfo={savedEducationInfo}
-          experienceInfo={savedExperienceInfo}
-          pdfUrl={pdfUrl}
-          setPdfUrl={setPdfUrl}
-        />
+        <div
+          style={{
+            display: isMobile && showCVForms ? "none" : "block",
+          }}
+        >
+          <Preview
+            personalInfo={savedPersonalInfo}
+            educationInfo={savedEducationInfo}
+            experienceInfo={savedExperienceInfo}
+            pdfUrl={pdfUrl}
+            setPdfUrl={setPdfUrl}
+          />
+        </div>
       </main>
     </div>
   );
