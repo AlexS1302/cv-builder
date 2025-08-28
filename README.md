@@ -12,6 +12,7 @@ A responsive CV Builder built with React, featuring live document preview, multi
 ## Technologies Used
 * React
 * Vite
+* Lucide (for icons)
 * date-fns (for handling time formatting)
 * react-pdf (for real-time document preview)
 * @react-pdf/renderer (for PDF generation)
